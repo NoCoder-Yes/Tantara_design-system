@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_blank" name="shell-type"/><title>Tantara - Authentication</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Chivo:wght@500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-lowest": "#ffffff", "outline": "#767587", "on-primary-fixed": "#03006d", "surface-dim": "#cbdbf5", "tertiary-fixed-dim": "#6ed2fe", "on-tertiary": "#ffffff", "secondary-fixed-dim": "#bcc4f1", "error": "#ba1a1a", "error-container": "#ffdad6", "on-tertiary-container": "#81d7ff", "tertiary-container": "#005e7b", "outline-variant": "#c6c5d8", "primary-container": "#3b3fd8", "on-secondary-fixed-variant": "#3d456a", "on-background": "#0b1c30", "on-primary-container": "#c7c8ff", "on-primary": "#ffffff", "surface-bright": "#f8f9ff", "surface-variant": "#d3e4fe", "background": "#f8f9ff", "on-secondary": "#ffffff", "inverse-primary": "#c0c1ff", "surface": "#f8f9ff", "primary-fixed-dim": "#c0c1ff", "surface-tint": "#4448e0", "on-error": "#ffffff", "on-tertiary-fixed-variant": "#004d65", "on-secondary-container": "#515980", "secondary": "#545c83", "primary-fixed": "#e1e0ff", "tertiary": "#00455b", "surface-container": "#e5eeff", "on-secondary-fixed": "#10193c", "inverse-surface": "#213145", "surface-container-low": "#eff4ff", "on-error-container": "#93000a", "inverse-on-surface": "#eaf1ff", "secondary-fixed": "#dde1ff", "surface-container-highest": "#d3e4fe", "on-surface-variant": "#454555", "on-primary-fixed-variant": "#2829c8", "surface-container-high": "#dce9ff", "on-tertiary-fixed": "#001f2a", "on-surface": "#0b1c30", "tertiary-fixed": "#bfe9ff", "secondary-container": "#cad2ff", "primary": "#1e1dc2" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-sm": "0.5rem", "space-xl": "1.75rem", "space-md": "0.75rem", "gutter": "1rem", "space-lg": "1.25rem", "margin": "1.5rem" }, "fontFamily": { "body-strong": ["Arimo"], "label-caps": ["Chivo"], "brand-quote-lg": ["Playfair Display"], "brand-display-xl": ["Playfair Display"], "badge-sm": ["Chivo"], "title-sm": ["Chivo"], "body-medium": ["Arimo"], "table-cell": ["Arimo"], "headline-lg": ["Arimo"], "body-default": ["Arimo"], "body-secondary": ["Arimo"], "headline-md": ["Arimo"] }, "fontSize": { "body-strong": ["13px", { "lineHeight": "20px", "fontWeight": "600" }], "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }], "brand-quote-lg": ["22px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "brand-display-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "0.02em", "fontWeight": "700" }], "badge-sm": ["11px", { "lineHeight": "14px", "fontWeight": "600" }], "title-sm": ["15px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "body-medium": ["13px", { "lineHeight": "20px", "fontWeight": "500" }], "table-cell": ["12px", { "lineHeight": "18px", "fontWeight": "500" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-default": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "body-secondary": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "headline-md": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }] } } } };</script></head><body class="bg-surface font-body-default text-body-default text-on-surface antialiased min-h-screen flex flex-col justify-between"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(11,28,48,0.04)]"><div class="h-16 w-full max-w-7xl mx-auto px-margin flex items-center justify-between gap-gutter"><a class="flex items-center gap-space-md text-on-surface" data-path="landing-page" href="#"><img alt="Tantara Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1W3k-t24YrmsnwazHVc7pUAokcPIWJUec5mxCyZsskBZUrlQp2JbNPr3O6zezT84Wr_pFSmKEVMjcAHkyJdksYh_01crAH7uWDG98URFSRgcmtCtJBz8vHvHMk5w8voS2bUCCTsOYm1ptZTbSoGvFkTQgr6OZjxYSA7Un5pxzRlr0VhKsHCU-gr7Xgpl0TRUjLO6-FsajMlbSgMgjMSIYyE8pc4BTO6_XS2EsVmcY-SBSu7xBX5-PblQg"/><div class="flex flex-col"><span class="font-headline-md text-headline-md tracking-tight leading-none text-on-surface">TANTARA</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Arbitration Chamber Access</span></div></a><div class="flex items-center gap-space-md"><a class="inline-flex items-center gap-space-xs font-body-strong text-body-strong text-on-surface-variant hover:text-on-surface transition-colors" data-path="landing-page" href="#"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Back to Home</a></div></div></header><main class="w-full pt-16 flex-1 flex flex-col items-center justify-center bg-surface px-margin py-space-xl"><div class="flex flex-col w-full items-center justify-center py-space-md">
+<!-- Subtle ambient decorative glow behind card -->
+<div class="relative w-full max-w-xl flex flex-col items-center">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -right-10 w-72 h-72 bg-tertiary-fixed-dim/20 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Trust Endorsement Pill Above Container -->
+<div class="relative mb-space-md inline-flex items-center gap-space-sm bg-surface-container-lowest px-space-md py-1.5 rounded-full shadow-sm">
+<div class="flex -space-x-1.5 items-center">
+<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-primary text-on-primary text-[9px] font-bold">SIAC</span>
+<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-inverse-surface text-inverse-on-surface text-[9px] font-bold">ICC</span>
+<span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-tertiary text-on-tertiary text-[9px] font-bold">LCIA</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-wider uppercase">Join 500+ Leading Arbitration Counsel &amp; Legal Chambers</span>
+<span class="material-symbols-outlined text-[15px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<!-- Main Authentication Chamber Card -->
+<div class="relative w-full bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden p-8 sm:p-10">
+<!-- Card Top Monogram & Architectural Header -->
+<div class="flex flex-col items-center text-center mb-space-lg">
+<div class="w-12 h-12 mb-space-sm rounded-lg bg-inverse-surface flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-surface-bright text-[26px]">gavel</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-1">Institutional Chamber Onboarding</span>
+<h1 class="font-brand-quote-lg text-brand-quote-lg text-on-surface tracking-tight">Create your TANTARA Account</h1>
+<p class="font-body-default text-body-default text-on-surface-variant max-w-md mt-1">
+          Start managing arbitrations, drafting claims, and generating compliant filing bundles.
+        </p>
+</div>
+<!-- Google Single Sign-On Primary Fast-Track -->
+<button class="w-full flex items-center justify-center gap-space-md py-3 px-space-md bg-surface-container-lowest hover:bg-surface-container-low transition-colors rounded-lg shadow-sm font-body-strong text-body-strong text-on-surface" type="button">
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z" fill="#4285F4"></path>
+<path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.27 21.43 7.34 24 12 24z" fill="#34A853"></path>
+<path d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.14-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z" fill="#FBBC05"></path>
+<path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.27 2.57 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z" fill="#EA4335"></path>
+</svg>
+<span>Sign up with Google Single Sign-On</span>
+</button>
+<!-- Structural Institutional Divider -->
+<div class="relative flex items-center justify-center my-space-lg">
+<div class="w-full h-px bg-surface-container-high"></div>
+<span class="absolute bg-surface-container-lowest px-space-md font-label-caps text-label-caps text-outline uppercase tracking-wider">
+          or register with chamber credentials
+        </span>
+</div>
+<!-- Registration Form -->
+<form class="flex flex-col gap-space-md" id="signup-chamber-form" onsubmit="event.preventDefault();">
+<!-- Row: Full Name & Bar ID -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1.5">
+<label class="font-body-strong text-body-strong text-on-surface flex items-center justify-between" for="advocate-name">
+              Full Legal Name
+              <span class="text-error font-body-default">*</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[18px] text-outline">badge</span>
+<input class="w-full pl-10 pr-3 py-2.5 bg-surface-container-low rounded-lg font-body-default text-body-default text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all" id="advocate-name" placeholder="Advocate Aarav Mehta" required="" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-body-strong text-body-strong text-on-surface flex items-center justify-between" for="bar-id">
+              Bar Council / ID
+              <span class="font-body-secondary text-body-secondary text-outline">Optional</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[18px] text-outline">account_balance</span>
+<input class="w-full pl-10 pr-3 py-2.5 bg-surface-container-low rounded-lg font-body-default text-body-default text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all" id="bar-id" placeholder="MAH/1234/2015" type="text"/>
+</div>
+</div>
+</div>
+<!-- Chamber / Institutional Email -->
+<div class="flex flex-col gap-1.5">
+<label class="font-body-strong text-body-strong text-on-surface flex items-center justify-between" for="chamber-email">
+            Chamber / Firm Email Address
+            <span class="text-error font-body-default">*</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[18px] text-outline">mail</span>
+<input class="w-full pl-10 pr-3 py-2.5 bg-surface-container-low rounded-lg font-body-default text-body-default text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all" id="chamber-email" placeholder="aarav.mehta@chambers.in" required="" type="email"/>
+</div>
+</div>
+<!-- Practice Focus Selector -->
+<div class="flex flex-col gap-1.5">
+<label class="font-body-strong text-body-strong text-on-surface" for="practice-role">
+            Primary Arbitration Capacity
+          </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[18px] text-outline pointer-events-none">balance</span>
+<select class="w-full pl-10 pr-10 py-2.5 bg-surface-container-low rounded-lg font-body-default text-body-default text-on-surface appearance-none focus:outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all cursor-pointer" id="practice-role">
+<option value="counsel">Arbitration Counsel / Senior Advocate</option>
+<option value="arbitrator">Independent Arbitrator / Tribunal Member</option>
+<option value="lawfirm">Law Firm International Disputes Practice</option>
+<option value="inhouse">In-House Enterprise Disputes Counsel</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 text-[18px] text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Password Creation Field & Interactive Strength Meter -->
+<div class="flex flex-col gap-1.5">
+<label class="font-body-strong text-body-strong text-on-surface flex items-center justify-between" for="chamber-password">
+            Secret Chamber Passphrase
+            <span class="font-body-secondary text-body-secondary text-outline">Min. 8 chars</span>
+</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[18px] text-outline">lock</span>
+<input class="w-full pl-10 pr-10 py-2.5 bg-surface-container-low rounded-lg font-body-default text-body-default text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:shadow-md transition-all" id="chamber-password" placeholder="At least 8 characters, 1 number &amp; 1 symbol" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute right-3 text-outline hover:text-on-surface transition-colors flex items-center" id="toggle-pwd" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+<!-- Real-Time Password Entropy Indicators -->
+<div class="mt-1 flex flex-col gap-1">
+<div class="grid grid-cols-4 gap-1.5 h-1.5 w-full">
+<div class="h-full rounded-full bg-surface-container-high transition-colors duration-300" id="bar-1"></div>
+<div class="h-full rounded-full bg-surface-container-high transition-colors duration-300" id="bar-2"></div>
+<div class="h-full rounded-full bg-surface-container-high transition-colors duration-300" id="bar-3"></div>
+<div class="h-full rounded-full bg-surface-container-high transition-colors duration-300" id="bar-4"></div>
+</div>
+<div class="flex items-center justify-between font-label-caps text-label-caps text-outline">
+<span id="strength-label">Cryptographic requirement: 8+ chars</span>
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                Argon2id Hash Protected
+              </span>
+</div>
+</div>
+</div>
+<!-- Legal Undertaking Agreement -->
+<div class="flex items-start gap-space-sm pt-1">
+<div class="flex items-center h-5 mt-0.5">
+<input class="w-4 h-4 rounded text-primary bg-surface-container-low focus:ring-0 focus:outline-none cursor-pointer" id="terms-check" required="" type="checkbox"/>
+</div>
+<label class="font-body-secondary text-body-secondary text-on-surface-variant leading-tight cursor-pointer" for="terms-check">
+            I agree to TANTARA's 
+            <a class="text-primary font-body-strong hover:underline" href="#">Terms of Service</a>, 
+            <a class="text-primary font-body-strong hover:underline" href="#">Confidentiality Undertaking</a>, 
+            and 
+            <a class="text-primary font-body-strong hover:underline" href="#">Privacy Policy</a>.
+          </label>
+</div>
+<!-- Primary Action CTA Button -->
+<button class="w-full mt-2 py-3.5 px-space-md bg-primary hover:bg-primary-container text-on-primary font-body-strong text-title-sm rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-space-sm tracking-wide" type="submit">
+<span>Create Account &amp; Start Trial</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</form>
+<!-- Navigation Routing Alternative -->
+<div class="text-center mt-space-lg">
+<span class="font-body-default text-body-default text-on-surface-variant">Already possess chamber credentials?</span>
+<a class="ml-1.5 font-body-strong text-body-strong text-primary hover:underline inline-flex items-center" data-path="login" href="#">
+          Sign In
+        </a>
+</div>
+<!-- Institutional Security Guarantee Callout -->
+<div class="mt-space-lg pt-space-md bg-surface-container-low rounded-lg p-3 flex items-center justify-center gap-2 text-center">
+<span class="material-symbols-outlined text-primary text-[16px]">verified_user</span>
+<span class="font-table-cell text-table-cell text-on-surface-variant">
+          Bank-grade SOC-2 Type II compliant • End-to-end encrypted docket repository
+        </span>
+</div>
+</div>
+<!-- Supplementary Compliance Badges -->
+<div class="flex flex-wrap items-center justify-center gap-space-lg mt-space-md font-label-caps text-label-caps text-outline uppercase tracking-wider">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">shield</span>
+        Arbitration &amp; Conciliation Act 1996
+      </div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">encrypted</span>
+        Zero Data Ingestion for Public Models
+      </div>
+</div>
+</div>
+<!-- Embedded Interaction Script for Micro-Interactions -->
+<script>
+    (function initAuthInteractions() {
+      const pwdInput = document.getElementById('chamber-password');
+      const toggleBtn = document.getElementById('toggle-pwd');
+      const bar1 = document.getElementById('bar-1');
+      const bar2 = document.getElementById('bar-2');
+      const bar3 = document.getElementById('bar-3');
+      const bar4 = document.getElementById('bar-4');
+      const strengthLabel = document.getElementById('strength-label');
+
+      if (toggleBtn && pwdInput) {
+        toggleBtn.addEventListener('click', () => {
+          const isPassword = pwdInput.getAttribute('type') === 'password';
+          pwdInput.setAttribute('type', isPassword ? 'text' : 'password');
+          const icon = toggleBtn.querySelector('span');
+          if (icon) {
+            icon.textContent = isPassword ? 'visibility_off' : 'visibility';
+          }
+        });
+      }
+
+      if (pwdInput && bar1 && bar2 && bar3 && bar4 && strengthLabel) {
+        pwdInput.addEventListener('input', (e) => {
+          const val = e.target.value;
+          let score = 0;
+          if (val.length >= 8) score++;
+          if (/[0-9]/.test(val)) score++;
+          if (/[^A-Za-z0-9]/.test(val)) score++;
+          if (val.length >= 12) score++;
+
+          // Reset styles
+          [bar1, bar2, bar3, bar4].forEach(bar => {
+            bar.className = 'h-full rounded-full bg-surface-container-high transition-colors duration-300';
+          });
+
+          if (val.length === 0) {
+            strengthLabel.textContent = 'Cryptographic requirement: 8+ chars';
+            strengthLabel.className = 'font-label-caps text-label-caps text-outline';
+          } else if (score === 1) {
+            bar1.className = 'h-full rounded-full bg-error transition-colors duration-300';
+            strengthLabel.textContent = 'Weak Chamber Key';
+            strengthLabel.className = 'font-label-caps text-label-caps text-error';
+          } else if (score === 2) {
+            bar1.className = bar2.className = 'h-full rounded-full bg-secondary transition-colors duration-300';
+            strengthLabel.textContent = 'Moderate Security';
+            strengthLabel.className = 'font-label-caps text-label-caps text-secondary';
+          } else if (score === 3) {
+            bar1.className = bar2.className = bar3.className = 'h-full rounded-full bg-primary-container transition-colors duration-300';
+            strengthLabel.textContent = 'Strong Legal-grade Key';
+            strengthLabel.className = 'font-label-caps text-label-caps text-primary-container';
+          } else {
+            bar1.className = bar2.className = bar3.className = bar4.className = 'h-full rounded-full bg-primary transition-colors duration-300';
+            strengthLabel.textContent = 'Tribunal Certified Cipher';
+            strengthLabel.className = 'font-label-caps text-label-caps text-primary font-bold';
+          }
+        });
+      }
+    })();
+  </script>
+</div></main><footer class="w-full py-space-md bg-surface-container-low"><div class="max-w-7xl mx-auto px-margin flex flex-col sm:flex-row items-center justify-between gap-space-xs font-body-secondary text-body-secondary text-on-surface-variant"><div class="flex items-center gap-space-sm"><span>Protected by Enterprise TLS 1.3</span><span>•</span><span>Act of 1996 Protocol Adherent</span></div><div>© 2025 TANTARA Arbitration Technologies.</div></div></footer></body></html>
