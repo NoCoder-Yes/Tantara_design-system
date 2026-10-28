@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<title>Tantara - Arbitration Workspace Features</title><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&amp;family=Chivo:ital,wght@0,100..900;1,100..900&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-fixed": "#e1e0ff", "secondary-container": "#cad2ff", "inverse-on-surface": "#eaf1ff", "primary-container": "#3b3fd8", "on-secondary": "#ffffff", "background": "#f8f9ff", "primary-fixed-dim": "#c0c1ff", "inverse-surface": "#213145", "on-tertiary": "#ffffff", "on-secondary-fixed": "#10193c", "on-surface": "#0b1c30", "surface-container": "#e5eeff", "outline-variant": "#c6c5d8", "surface-dim": "#cbdbf5", "surface-container-low": "#eff4ff", "outline": "#767587", "secondary-fixed": "#dde1ff", "on-primary-fixed-variant": "#2829c8", "on-tertiary-fixed": "#001f2a", "tertiary": "#00455b", "on-primary-container": "#c7c8ff", "surface-tint": "#4448e0", "on-primary": "#ffffff", "on-primary-fixed": "#03006d", "error-container": "#ffdad6", "inverse-primary": "#c0c1ff", "secondary-fixed-dim": "#bcc4f1", "tertiary-fixed-dim": "#6ed2fe", "on-error-container": "#93000a", "on-error": "#ffffff", "error": "#ba1a1a", "on-tertiary-fixed-variant": "#004d65", "surface-bright": "#f8f9ff", "on-secondary-container": "#515980", "surface-variant": "#d3e4fe", "on-background": "#0b1c30", "surface-container-highest": "#d3e4fe", "on-secondary-fixed-variant": "#3d456a", "secondary": "#545c83", "surface-container-lowest": "#ffffff", "on-surface-variant": "#454555", "primary": "#1e1dc2", "surface": "#f8f9ff", "surface-container-high": "#dce9ff", "tertiary-fixed": "#bfe9ff", "on-tertiary-container": "#81d7ff", "tertiary-container": "#005e7b", "navy-dark": "#0B1124" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-sm": "0.5rem", "space-xl": "1.75rem", "space-md": "0.75rem", "margin": "1.5rem", "gutter": "1rem", "space-lg": "1.25rem" }, "fontFamily": { "body-strong": [ "Inter", "Arimo" ], "headline-lg": [ "Arimo" ], "body-default": [ "Inter", "Arimo" ], "label-caps": [ "Chivo" ], "brand-display-xl": [ "Playfair Display" ], "table-cell": [ "Inter", "Arimo" ], "brand-quote-lg": [ "Playfair Display" ], "headline-md": [ "Arimo" ], "title-sm": [ "Chivo" ], "body-medium": [ "Inter", "Arimo" ], "body-secondary": [ "Inter", "Arimo" ], "badge-sm": [ "Chivo" ] }, "fontSize": { "body-strong": [ "13px", { "lineHeight": "20px", "fontWeight": "600" } ], "headline-lg": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "body-default": [ "13px", { "lineHeight": "20px", "fontWeight": "400" } ], "label-caps": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" } ], "brand-display-xl": [ "36px", { "lineHeight": "44px", "letterSpacing": "0.02em", "fontWeight": "700" } ], "table-cell": [ "12px", { "lineHeight": "18px", "fontWeight": "500" } ], "brand-quote-lg": [ "22px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "headline-md": [ "18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" } ], "title-sm": [ "15px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600" } ], "body-medium": [ "13px", { "lineHeight": "20px", "fontWeight": "500" } ], "body-secondary": [ "12px", { "lineHeight": "18px", "fontWeight": "400" } ], "badge-sm": [ "11px", { "lineHeight": "14px", "fontWeight": "600" } ] } } } };</script><link rel="stylesheet" href="./shared/styles.css">
+<style id="features-interactive-enhancements">
+  /* 3D Tilt perspective wrapper */
+  .dashboard-frame-wrap {
+    perspective: 1200px;
+    width: 100%;
+  }
+  .dashboard-frame {
+    transform-style: preserve-3d;
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+    will-change: transform;
+  }
+
+  /* Carousel CSS Grid Stage for seamless crossfade */
+  .carousel-stage {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    width: 100%;
+    min-height: 480px;
+    position: relative;
+  }
+  .carousel-slide {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s;
+    pointer-events: none;
+    width: 100%;
+  }
+  .carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 2;
+  }
+
+  /* Scroll-triggered fade-up animation */
+  .fade-up-init {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .fade-up-active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Accessibility: prefers-reduced-motion overrides */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+    .fade-up-init {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .dashboard-frame {
+      transform: none !important;
+      transition: none !important;
+      box-shadow: none !important;
+    }
+    .carousel-slide {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+</style>
+
+</head><body class="bg-surface font-body-default text-on-surface antialiased selection:bg-primary-container selection:text-white"><header class="fixed top-0 w-full z-50 bg-[#0B1124] shadow-[0_1px_8px_rgba(0,0,0,0.18)]"><div class="h-16 w-full px-margin mx-auto flex items-center justify-between"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm text-surface-container-lowest" data-path="home" href="./tantara_landing_page_with_dark_light_mode/code.html"><img loading="lazy"  alt="Tantara Logo" class="h-8 w-auto object-contain rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_9ypp4b3Oi8KpKpzDN_fnVi5y2SGjRVcQQa2LzWB-kx7THNKX3gdmqiYlEOl0uzXAmbjwtRh14ASksMKGakDGX0bn7QooFCL_V6cybX4jJWiKOQbPZvuoFUD-SxwKqBvNYhQwtWmNSzKXWuaabYEOAAykft-716roYj88ElhDyc26DCE2KkUMx7GV4IrJhDAUqoX6VLqvoThEWnnTKbXmzWaJCugc21kKDvM-nuZlxvJxCPSUW838H5Kd8LvfZeWOGA"/><span class="font-brand-display-xl text-title-sm tracking-wide uppercase text-surface-container-lowest font-bold">TANTARA</span><span class="font-label-caps text-label-caps uppercase tracking-wider px-space-xs py-0.5 rounded bg-surface-container-highest/20 text-tertiary-fixed">Legal Workspace</span></a></div><nav class="hidden md:flex items-center gap-space-xl" data-active-classes="text-surface-container-lowest font-body-strong border-b-2 border-primary-container"><a class="font-body-medium text-body-medium text-surface-dim hover:text-surface-container-lowest transition-colors" data-path="home" href="./tantara_landing_page_with_dark_light_mode/code.html">Home</a><a aria-current="page" class="transition-colors text-surface-container-lowest font-body-strong border-b-2 border-[#3B3FD8]" data-path="features" href="./features.html">Features</a><a class="font-body-medium text-body-medium text-surface-dim hover:text-surface-container-lowest transition-colors" data-path="pricing" href="./pricing.html">Pricing</a><a class="font-body-medium text-body-medium text-surface-dim hover:text-surface-container-lowest transition-colors" data-path="login" href="./tantara_login/code.html">Login</a></nav><div class="flex items-center gap-space-md"><button aria-label="Toggle Theme Mode" class="p-space-xs rounded-full text-surface-dim hover:text-surface-container-lowest transition-colors" type="button"><span class="material-symbols-outlined text-sm align-middle">dark_mode</span></button><a class="hidden sm:inline-flex items-center px-space-md py-space-xs rounded-lg bg-[#3B3FD8] text-on-primary font-body-strong text-body-default hover:bg-primary transition-all shadow-sm" data-path="register" href="./tantara_sign_up/code.html">Get Started</a><img loading="lazy"  alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline/30" src="https://lh3.googleusercontent.com/aida/AEtjO1VcHFVCq14H-bQxEggZ6cgb3h3ZqZYIO2wgHNRTF72tErRAiVzOUSo89PjsrlBbw4jkx9KX6AU1F6oaVvbyyDjxSZWYYlrzHpOxLz08V3orbANMm8FTWiqHLi7fMA0FXU65GmJSpaPkAMedyJaFrHA8BIcA-_ucip-Qk62lI78DCyrPVwyvgAoHRhC-sE0lb8MT4eTQdC9TzPx-PT1X-H49t60iWAK3G0dtfGf1XFQRAfvTFmCNdR3qDvBuMwh3LR6SpaPSuLFqyQ"/></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<script id="features-interactive-js-engine">
+  (function() {
+    'use strict';
+
+    // 1. Prefers-reduced-motion check
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let prefersReducedMotion = motionQuery.matches;
+    motionQuery.addEventListener('change', (e) => {
+      prefersReducedMotion = e.matches;
+    });
+
+    // 2. Dark mode toggle listener
+    const headerToggleBtn = document.querySelector('header button[aria-label="Toggle Theme Mode"]');
+    if (headerToggleBtn) {
+      headerToggleBtn.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // 3. Feature Scrollspy Left Navigation Rail Observer
+      const sections = document.querySelectorAll('[data-feature-section]');
+      const navLinks = document.querySelectorAll('[data-feature-link]');
+
+      if ('IntersectionObserver' in window && sections.length > 0) {
+        const spyObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const currentId = entry.target.getAttribute('id');
+              navLinks.forEach(link => {
+                if (link.getAttribute('href') === '#' + currentId) {
+                  link.classList.add('bg-primary-container', 'text-white', 'shadow-sm');
+                  link.classList.remove('text-secondary', 'hover:bg-surface-container', 'text-on-surface');
+                  const icon = link.querySelector('.feature-nav-icon');
+                  if (icon) icon.classList.add('text-white');
+                } else {
+                  link.classList.remove('bg-primary-container', 'text-white', 'shadow-sm');
+                  link.classList.add('text-secondary', 'hover:bg-surface-container');
+                  const icon = link.querySelector('.feature-nav-icon');
+                  if (icon) icon.classList.remove('text-white');
+                }
+              });
+            }
+          });
+        }, { root: null, rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+        sections.forEach(section => spyObserver.observe(section));
+      }
+
+      // 4. Scroll-triggered Fade-up Animations with IntersectionObserver
+      const fadeElements = document.querySelectorAll('.fade-up-init');
+      if (!prefersReducedMotion && 'IntersectionObserver' in window && fadeElements.length > 0) {
+        const fadeObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('fade-up-active');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+        fadeElements.forEach(el => fadeObserver.observe(el));
+      } else {
+        fadeElements.forEach(el => el.classList.add('fade-up-active'));
+      }
+
+      // 5. Auto-rotating Carousel Engine (Crossfade every 4s, pause on hover, dots, arrows)
+      const carousels = document.querySelectorAll('[data-browser-carousel]');
+      carousels.forEach(carousel => {
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const dots = carousel.querySelectorAll('[data-carousel-dot]');
+        const prevBtn = carousel.querySelector('[data-carousel-prev]');
+        const nextBtn = carousel.querySelector('[data-carousel-next]');
+        let activeIndex = 0;
+        const total = slides.length || dots.length;
+        let timer = null;
+
+        function showSlide(idx) {
+          activeIndex = (idx + total) % total;
+
+          // Update slides crossfade
+          slides.forEach((slide, i) => {
+            if (i === activeIndex) {
+              slide.classList.add('active');
+            } else {
+              slide.classList.remove('active');
+            }
+          });
+
+          // Update dots
+          dots.forEach((dot, i) => {
+            if (i === activeIndex) {
+              dot.classList.add('bg-[#3B3FD8]', 'w-6');
+              dot.classList.remove('bg-outline-variant/60', 'w-2.5');
+            } else {
+              dot.classList.remove('bg-[#3B3FD8]', 'w-6');
+              dot.classList.add('bg-outline-variant/60', 'w-2.5');
+            }
+          });
+        }
+
+        function startTimer() {
+          if (prefersReducedMotion || total <= 1) return;
+          stopTimer();
+          timer = setInterval(() => {
+            showSlide(activeIndex + 1);
+          }, 4000); // 4000ms auto-rotation
+        }
+
+        function stopTimer() {
+          if (timer) {
+            clearInterval(timer);
+            timer = null;
+          }
+        }
+
+        // Clickable dots
+        dots.forEach((dot, i) => {
+          dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSlide(i);
+            startTimer();
+          });
+        });
+
+        // Clickable arrows
+        if (prevBtn) {
+          prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSlide(activeIndex - 1);
+            startTimer();
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showSlide(activeIndex + 1);
+            startTimer();
+          });
+        }
+
+        // Pause on hover
+        carousel.addEventListener('mouseenter', stopTimer);
+        carousel.addEventListener('mouseleave', startTimer);
+
+        // Initial launch
+        showSlide(0);
+        startTimer();
+
+        // 6. Subtle 3D Tilt on Hover for Dashboard Frame
+        if (!prefersReducedMotion) {
+          carousel.addEventListener('mousemove', (e) => {
+            const rect = carousel.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            const maxTilt = 4.0; // subtle max 4.0 deg tilt
+            const rotX = -y * maxTilt;
+            const rotY = x * maxTilt;
+            carousel.style.transform = `perspective(1200px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) scale3d(1.008, 1.008, 1.008)`;
+            carousel.style.boxShadow = `${(-x * 16).toFixed(1)}px ${(-y * 16 + 20).toFixed(1)}px 32px -4px rgba(11, 17, 36, 0.24)`;
+          });
+
+          carousel.addEventListener('mouseleave', () => {
+            carousel.style.transform = '';
+            carousel.style.boxShadow = '';
+          });
+        }
+      });
+    });
+  })();
+</script>
+
+<!-- Hero Section -->
+<section class="relative w-full overflow-hidden bg-surface py-space-xl lg:py-24">
+<!-- Subtle radial background glow -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[520px] bg-gradient-to-b from-primary-fixed/40 via-surface-container-high/20 to-transparent pointer-events-none rounded-full blur-3xl"></div>
+<div class="relative w-full max-w-7xl mx-auto px-margin flex flex-col items-center text-center">
+<!-- Eyebrow Pill -->
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-highest/60 text-primary border-none shadow-sm backdrop-blur-sm mb-space-lg">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-bold">
+          ARBITRATION PRACTICE REDEFINED • INSTITUTIONAL LEGAL TECH
+        </span>
+</div>
+<!-- Headline -->
+<h1 class="font-brand-display-xl text-brand-display-xl lg:text-5xl text-on-surface max-w-4xl tracking-tight leading-tight mb-space-md">
+        Everything you need to run an arbitration matter
+      </h1>
+<!-- Subtext -->
+<p class="font-body-default text-title-sm text-secondary max-w-2xl leading-relaxed mb-space-xl">
+        A unified, AI-accelerated intelligence suite purpose-built for independent arbitrators, senior counsel, and international dispute resolution chambers.
+      </p>
+<!-- CTAs -->
+<div class="flex flex-col sm:flex-row items-center gap-space-md mb-space-xl">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-xl py-3 rounded-lg bg-[#3B3FD8] text-on-primary font-body-strong text-body-medium shadow-md hover:bg-primary transition-all" data-path="register" href="./tantara_sign_up/code.html">
+<span class="material-symbols-outlined text-lg">gavel</span>
+<span>Get Started Free</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-lg py-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-strong text-body-medium shadow-sm hover:bg-surface-container transition-all" href="#how-it-works">
+<span class="material-symbols-outlined text-lg text-primary">play_circle</span>
+<span>Explore Architecture</span>
+</a>
+</div>
+<!-- Key highlight metrics strip -->
+<div class="w-full max-w-4xl bg-surface-container-lowest shadow-sm rounded-xl p-space-md flex flex-wrap items-center justify-around gap-space-md text-on-surface-variant font-label-caps text-label-caps">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base">verified</span>
+<span>Arbitration &amp; Conciliation Act, 1996</span>
+</div>
+<span class="hidden sm:inline text-outline-variant">•</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-container text-base">account_balance</span>
+<span>SIAC, ICC, LCIA &amp; MCIA Protocols</span>
+</div>
+<span class="hidden sm:inline text-outline-variant">•</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary-container text-base">schedule</span>
+<span>IST Procedural Clock Synced</span>
+</div>
+</div>
+</div>
+</section>
+<!-- MAIN FEATURES INTERACTIVE SUITE WITH STICKY LEFT NAVIGATION -->
+<section class="relative w-full py-space-xl lg:py-16 bg-surface-container-lowest border-y border-outline-variant/30">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+<!-- STICKY LEFT NAVIGATION RAIL -->
+<aside class="hidden lg:block lg:col-span-3 sticky top-24 self-start">
+<div class="p-4 rounded-xl bg-surface border border-outline-variant/30 shadow-sm space-y-2">
+<div class="px-3 py-2 border-b border-outline-variant/20 mb-1">
+<span class="font-label-caps text-badge-sm uppercase tracking-wider text-secondary font-bold">Chambers Suite Index</span>
+<p class="font-body-secondary text-xs text-outline mt-0.5">Jump to arbitration capability</p>
+</div>
+<nav class="space-y-1.5" id="feature-rail-nav">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-body-strong text-sm transition-all bg-primary-container text-white shadow-sm" data-feature-link="" href="#feature-research">
+<span class="material-symbols-outlined text-lg feature-nav-icon text-white">menu_book</span>
+<span class="truncate">AI Legal Research</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-body-strong text-sm transition-all text-secondary hover:bg-surface-container hover:text-on-surface" data-feature-link="" href="#feature-drafting">
+<span class="material-symbols-outlined text-lg feature-nav-icon">edit_document</span>
+<span class="truncate">Document Drafting</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-body-strong text-sm transition-all text-secondary hover:bg-surface-container hover:text-on-surface" data-feature-link="" href="#feature-workspace">
+<span class="material-symbols-outlined text-lg feature-nav-icon">folder_managed</span>
+<span class="truncate">Case Workspace</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-body-strong text-sm transition-all text-secondary hover:bg-surface-container hover:text-on-surface" data-feature-link="" href="#feature-paperbook">
+<span class="material-symbols-outlined text-lg feature-nav-icon">layers</span>
+<span class="truncate">Automated Filing Bundle &amp; Paperbook</span>
+</a>
+</nav>
+<div class="pt-3 border-t border-outline-variant/20 px-3">
+<div class="flex items-center gap-2 text-xs font-label-caps text-outline">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>4/4 Engines Live &amp; Ready</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- FEATURE CARDS / VIEWS ON RIGHT (Scrollable stream) -->
+<div class="lg:col-span-9 space-y-24 lg:space-y-32">
+<!-- FEATURE 1: AI Legal Research -->
+<article class="scroll-mt-28 space-y-8 fade-up-init" data-feature-section="" id="feature-research">
+<!-- Text Description & Badge -->
+<div class="space-y-3 max-w-3xl">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-secondary-container/40 text-on-secondary-fixed font-label-caps text-badge-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm text-[#3B3FD8]">menu_book</span>
+              Precedent Retrieval
+            </div>
+<h2 class="font-brand-display-xl text-headline-lg lg:text-3xl text-on-surface">
+              AI Legal Research
+            </h2>
+<p class="font-body-default text-body-strong text-secondary leading-relaxed">
+              Instant semantic retrieval across landmark arbitral precedents, tribunal awards, High Court rulings, and statutory provisions.
+            </p>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-2 pt-2 font-body-default text-on-surface text-sm">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Comparative analysis of Section 9 vs Section 17 interim relief precedents.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Real-time citation validity checks against Supreme Court Constitution Benches.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Contextual extracts mapped directly to the New York Convention standards.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Auto-extracted ratio decidendi and jurisdictional objections filter.</span>
+</li>
+</ul>
+</div>
+<!-- Browser Window Frame -->
+<div class="dashboard-frame-wrap">
+<div class="rounded-xl border border-outline-variant/40 bg-surface-container shadow-2xl overflow-hidden dashboard-frame" data-browser-carousel="">
+<!-- macOS / Modern Browser Chrome -->
+<div class="bg-[#0B1124] px-4 py-3 flex items-center justify-between border-b border-white/10 select-none">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block shadow-sm"></span>
+<span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block shadow-sm"></span>
+<span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block shadow-sm"></span>
+</div>
+<!-- Address Bar -->
+<div class="flex-1 max-w-xl mx-4">
+<div class="bg-surface-container-highest/15 text-surface-container-lowest text-xs font-mono py-1.5 px-3 rounded-md flex items-center gap-2 border border-white/10 shadow-inner">
+<span class="material-symbols-outlined text-sm text-[#3B3FD8]">lock</span>
+<span class="text-surface-dim font-medium">https://tantara.legal/app/research</span>
+<span class="ml-auto text-[10px] text-tertiary-fixed bg-tertiary-container/40 px-1.5 py-0.5 rounded font-label-caps uppercase">Live Sync</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-surface-dim">
+<span class="material-symbols-outlined text-base">refresh</span>
+<span class="material-symbols-outlined text-base">more_vert</span>
+</div>
+</div>
+<!-- Rich Browser Content Area -->
+<div class="p-4 sm:p-6 bg-gradient-to-b from-surface-container-lowest to-surface">
+<div class="carousel-stage">
+  <!-- Slide 1: Interim Relief (§9 vs §17) -->
+  <div class="carousel-slide active" data-slide-index="0">
+    <div class="relative rounded-xl overflow-hidden border border-outline-variant/30 shadow-md bg-[#0b1c30] text-surface-container-lowest">
+      <div class="p-4 border-b border-surface-container-highest/20 flex flex-wrap items-center justify-between gap-3 bg-[#0d223a]">
+        <div class="flex items-center gap-2">
+          <span class="font-brand-display-xl text-lg font-bold text-tertiary-fixed">TANTARA</span>
+          <span class="text-xs font-mono px-2 py-0.5 rounded bg-primary-container text-white">JURIS-LEX v3.2</span>
+          <span class="text-xs text-outline-variant">Arbitration &amp; Conciliation Act, 1996 DB Active</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-1 rounded bg-surface-container-highest/20 text-surface-dim">Jurisdiction: Supreme Court of India</span>
+        </div>
+      </div>
+      <div class="p-4 border-b border-surface-container-highest/15 bg-surface-container-lowest/5">
+        <div class="bg-surface-container-lowest/10 border border-white/10 p-2.5 rounded-lg flex items-center gap-3">
+          <span class="material-symbols-outlined text-[#3B3FD8] text-xl">search</span>
+          <div class="text-sm text-surface-container-lowest font-medium flex-1">
+            Section 9 vs Section 17 Interim Relief: Scope of Arbitral Tribunal Powers vs Court Orders
+          </div>
+          <span class="text-xs bg-[#3B3FD8] text-white px-2.5 py-1 rounded-md font-label-caps">98% SEMANTIC MATCH</span>
+        </div>
+      </div>
+      <div class="p-4 sm:p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 rounded-lg bg-surface-container-lowest/5 border border-white/10 hover:border-primary-container transition-all">
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <span class="font-title-sm text-sm text-tertiary-fixed font-bold">Bharat Aluminium Co. (BALCO) v. Kaiser Aluminium</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#3B3FD8] text-white">Leading Precedent</span>
+          </div>
+          <div class="text-xs text-outline-variant mb-2 font-mono">(2012) 9 SCC 552 • 5-Judge Constitution Bench</div>
+          <p class="text-xs text-surface-dim leading-relaxed">
+            Territoriality principle under Part I vs Part II. Critical ruling clarifying the supervisory jurisdiction of Indian courts over foreign-seated arbitrations.
+          </p>
+          <div class="mt-3 pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-tertiary-fixed-dim">
+            <span>Key Sections: §9, §2(2), §34</span>
+            <span class="text-white hover:underline cursor-pointer">Open Full Headnote →</span>
+          </div>
+        </div>
+        <div class="p-4 rounded-lg bg-surface-container-lowest/5 border border-white/10 hover:border-primary-container transition-all">
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <span class="font-title-sm text-sm text-tertiary-fixed font-bold">Amazon.com NV Inv. Holdings LLC v. Future Retail Ltd.</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#3B3FD8] text-white">Emergency Arb</span>
+          </div>
+          <div class="text-xs text-outline-variant mb-2 font-mono">(2022) 1 SCC 209 • Emergency Arbitrator Enforceability</div>
+          <p class="text-xs text-surface-dim leading-relaxed">
+            Held that Emergency Arbitrator's interim orders rendered under institutional rules (SIAC) are deemed orders under Section 17(1) and directly enforceable under Section 17(2).
+          </p>
+          <div class="mt-3 pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-tertiary-fixed-dim">
+            <span>Key Sections: §17(1), §17(2), SIAC Rule 30</span>
+            <span class="text-white hover:underline cursor-pointer">Open Full Headnote →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: Setting Aside (§34 Patent Illegality) -->
+  <div class="carousel-slide" data-slide-index="1">
+    <div class="relative rounded-xl overflow-hidden border border-outline-variant/30 shadow-md bg-[#0b1c30] text-surface-container-lowest">
+      <div class="p-4 border-b border-surface-container-highest/20 flex flex-wrap items-center justify-between gap-3 bg-[#0d223a]">
+        <div class="flex items-center gap-2">
+          <span class="font-brand-display-xl text-lg font-bold text-tertiary-fixed">TANTARA</span>
+          <span class="text-xs font-mono px-2 py-0.5 rounded bg-primary-container text-white">JURIS-LEX v3.2</span>
+          <span class="text-xs text-outline-variant">Challenge to Arbitral Awards Module Active</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-1 rounded bg-surface-container-highest/20 text-surface-dim">Filter: Patent Illegality Ground</span>
+        </div>
+      </div>
+      <div class="p-4 border-b border-surface-container-highest/15 bg-surface-container-lowest/5">
+        <div class="bg-surface-container-lowest/10 border border-white/10 p-2.5 rounded-lg flex items-center gap-3">
+          <span class="material-symbols-outlined text-[#3B3FD8] text-xl">gavel</span>
+          <div class="text-sm text-surface-container-lowest font-medium flex-1">
+            Section 34(2A) Patent Illegality &amp; Fundamental Policy of Indian Law Standards
+          </div>
+          <span class="text-xs bg-emerald-600 text-white px-2.5 py-1 rounded-md font-label-caps">99% CITATION RATIO</span>
+        </div>
+      </div>
+      <div class="p-4 sm:p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 rounded-lg bg-surface-container-lowest/5 border border-white/10 hover:border-primary-container transition-all">
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <span class="font-title-sm text-sm text-tertiary-fixed font-bold">Associate Builders v. Delhi Development Authority</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#3B3FD8] text-white">Landmark §34</span>
+          </div>
+          <div class="text-xs text-outline-variant mb-2 font-mono">(2015) 3 SCC 49 • Public Policy Analysis</div>
+          <p class="text-xs text-surface-dim leading-relaxed">
+            Definitive benchmark on merits review prohibition. An arbitral award cannot be set aside merely because an alternative plausible interpretation exists.
+          </p>
+          <div class="mt-3 pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-tertiary-fixed-dim">
+            <span>Key Sections: §34(2)(b)(ii), Public Policy</span>
+            <span class="text-white hover:underline cursor-pointer">Open Full Headnote →</span>
+          </div>
+        </div>
+        <div class="p-4 rounded-lg bg-surface-container-lowest/5 border border-white/10 hover:border-primary-container transition-all">
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <span class="font-title-sm text-sm text-tertiary-fixed font-bold">Ssangyong Engineering &amp; Construction v. NHAI</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#3B3FD8] text-white">Post-2015 Regime</span>
+          </div>
+          <div class="text-xs text-outline-variant mb-2 font-mono">(2019) 15 SCC 131 • Patent Illegality Test</span>
+          </div>
+          <p class="text-xs text-surface-dim leading-relaxed">
+            Clarified that patent illegality under subsection (2A) must go to the root of the matter. Unilateral circulars cannot override express contractual terms.
+          </p>
+          <div class="mt-3 pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-tertiary-fixed-dim">
+            <span>Key Sections: §34(2A), §28(3) CPC</span>
+            <span class="text-white hover:underline cursor-pointer">Open Full Headnote →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: Arbitrator Appointment (§11 & Stamp Act) -->
+  <div class="carousel-slide" data-slide-index="2">
+    <div class="relative rounded-xl overflow-hidden border border-outline-variant/30 shadow-md bg-[#0b1c30] text-surface-container-lowest">
+      <div class="p-4 border-b border-surface-container-highest/20 flex flex-wrap items-center justify-between gap-3 bg-[#0d223a]">
+        <div class="flex items-center gap-2">
+          <span class="font-brand-display-xl text-lg font-bold text-tertiary-fixed">TANTARA</span>
+          <span class="text-xs font-mono px-2 py-0.5 rounded bg-primary-container text-white">JURIS-LEX v3.2</span>
+          <span class="text-xs text-outline-variant">Section 11 Referral &amp; Arbitrability Filter</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-1 rounded bg-surface-container-highest/20 text-surface-dim">Curated 7-Judge &amp; 3-Judge Benches</span>
+        </div>
+      </div>
+      <div class="p-4 border-b border-surface-container-highest/15 bg-surface-container-lowest/5">
+        <div class="bg-surface-container-lowest/10 border border-white/10 p-2.5 rounded-lg flex items-center gap-3">
+          <span class="material-symbols-outlined text-[#3B3FD8] text-xl">balance</span>
+          <div class="text-sm text-surface-container-lowest font-medium flex-1">
+            In Re: Interplay Between Arbitration Agreements &amp; Indian Stamp Act (7-Judge Bench)
+          </div>
+          <span class="text-xs bg-purple-600 text-white px-2.5 py-1 rounded-md font-label-caps">CONSTITUTION BENCH</span>
+        </div>
+      </div>
+      <div class="p-4 sm:p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 rounded-lg bg-surface-container-lowest/5 border border-white/10 hover:border-primary-container transition-all">
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <span class="font-title-sm text-sm text-tertiary-fixed font-bold">In Re: Interplay Stamp Act &amp; Arbitration</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-600 text-white">7-Judge Bench</span>
+          </div>
+          <div class="text-xs text-outline-variant mb-2 font-mono">(2024) 6 SCC 1 • Overruling NN Global Mercantile</div>
+          <p class="text-xs text-surface-dim leading-relaxed">
+            Non-stamping or insufficient stamping is a curable defect under the Stamp Act. Referral court under Section 11 must examine only prima facie existence of arbitration agreement.
+          </p>
+          <div class="mt-3 pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-tertiary-fixed-dim">
+            <span>Key Sections: §11(6A), §16 Kompetenz-Kompetenz</span>
+            <span class="text-white hover:underline cursor-pointer">Open Full Headnote →</span>
+          </div>
+        </div>
+        <div class="p-4 rounded-lg bg-surface-container-lowest/5 border border-white/10 hover:border-primary-container transition-all">
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <span class="font-title-sm text-sm text-tertiary-fixed font-bold">Vidya Drolia &amp; Ors. v. Durga Trading Corp.</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#3B3FD8] text-white">Arbitrability</span>
+          </div>
+          <div class="text-xs text-outline-variant mb-2 font-mono">(2021) 2 SCC 1 • Fourfold Test of Subject-Matter</span>
+          </div>
+          <p class="text-xs text-surface-dim leading-relaxed">
+            Established definitive fourfold test to identify disputes incapable of arbitral resolution. Governs landlord-tenant disputes and insolvency interface.
+          </p>
+          <div class="mt-3 pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-tertiary-fixed-dim">
+            <span>Key Sections: §8, §11, Right in Rem vs Personam</span>
+            <span class="text-white hover:underline cursor-pointer">Open Full Headnote →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: International Enforcement & Foreign Awards -->
+  <div class="carousel-slide" data-slide-index="3">
+    <div class="relative rounded-xl overflow-hidden border border-outline-variant/30 shadow-md bg-[#0b1c30] text-surface-container-lowest">
+      <div class="p-4 border-b border-surface-container-highest/20 flex flex-wrap items-center justify-between gap-3 bg-[#0d223a]">
+        <div class="flex items-center gap-2">
+          <span class="font-brand-display-xl text-lg font-bold text-tertiary-fixed">TANTARA</span>
+          <span class="text-xs font-mono px-2 py-0.5 rounded bg-primary-container text-white">JURIS-LEX v3.2</span>
+          <span class="text-xs text-outline-variant">Part II New York Convention Enforcement Engine</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-1 rounded bg-surface-container-highest/20 text-surface-dim">International Commercial Arbitration</span>
+        </div>
+      </div>
+      <div class="p-4 border-b border-surface-container-highest/15 bg-surface-container-lowest/5">
+        <div class="bg-surface-container-lowest/10 border border-white/10 p-2.5 rounded-lg flex items-center gap-3">
+          <span class="material-symbols-outlined text-[#3B3FD8] text-xl">public</span>
+          <div class="text-sm text-surface-container-lowest font-medium flex-1">
+            Section 48 Resistance Grounds &amp; Foreign Arbitral Award Execution in Indian Courts
+          </div>
+          <span class="text-xs bg-amber-500 text-black px-2.5 py-1 rounded-md font-label-caps">PRO-ENFORCEMENT BIAS</span>
+        </div>
+      </div>
+      <div class="p-4 sm:p-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 rounded-lg bg-surface-container-lowest/5 border border-white/10 hover:border-primary-container transition-all">
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <span class="font-title-sm text-sm text-tertiary-fixed font-bold">Vijay Karia &amp; Ors. v. Prysmian Cavi E Sistemi</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500 text-black">Section 48 Test</span>
+          </div>
+          <div class="text-xs text-outline-variant mb-2 font-mono">(2020) 11 SCC 1 • New York Convention</span>
+          </div>
+          <p class="text-xs text-surface-dim leading-relaxed">
+            Reiterated pro-enforcement bias under Part II. Resistance under Section 48 is strictly restricted to narrow grounds; patent illegality defense unavailable for foreign awards.
+          </p>
+          <div class="mt-3 pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-tertiary-fixed-dim">
+            <span>Key Sections: §48, New York Convention Art. V</span>
+            <span class="text-white hover:underline cursor-pointer">Open Full Headnote →</span>
+          </div>
+        </div>
+        <div class="p-4 rounded-lg bg-surface-container-lowest/5 border border-white/10 hover:border-primary-container transition-all">
+          <div class="flex items-center justify-between gap-2 mb-1.5">
+            <span class="font-title-sm text-sm text-tertiary-fixed font-bold">Centrotrade Minerals v. Hindustan Copper Ltd.</span>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#3B3FD8] text-white">Two-Tier Arb</span>
+          </div>
+          <div class="text-xs text-outline-variant mb-2 font-mono">(2017) 2 SCC 228 • Arbitral Autonomy Validated</span>
+          </div>
+          <p class="text-xs text-surface-dim leading-relaxed">
+            Upheld validity and enforceability of two-tier arbitration agreements under Indian law. Party autonomy remains the brooding omnipresence of arbitration jurisprudence.
+          </p>
+          <div class="mt-3 pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-tertiary-fixed-dim">
+            <span>Key Sections: §48(1)(b), Two-Tier Appeals</span>
+            <span class="text-white hover:underline cursor-pointer">Open Full Headnote →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- Carousel Controls Layout Beneath Frame -->
+<div class="bg-surface-container-lowest px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-xs font-label-caps uppercase text-secondary font-semibold">Precedent Views:</span>
+<!-- Dots (royal blue active) -->
+<div class="flex items-center gap-1.5 ml-2">
+<button aria-label="View 1" class="h-2.5 w-6 rounded-full bg-[#3B3FD8] transition-all" data-carousel-dot="" type="button"></button>
+<button aria-label="View 2" class="h-2.5 w-2.5 rounded-full bg-outline-variant/60 hover:bg-[#3B3FD8]/50 transition-all" data-carousel-dot="" type="button"></button>
+<button aria-label="View 3" class="h-2.5 w-2.5 rounded-full bg-outline-variant/60 hover:bg-[#3B3FD8]/50 transition-all" data-carousel-dot="" type="button"></button>
+<button aria-label="View 4" class="h-2.5 w-2.5 rounded-full bg-outline-variant/60 hover:bg-[#3B3FD8]/50 transition-all" data-carousel-dot="" type="button"></button>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Previous" class="w-8 h-8 rounded-full border border-outline-variant/50 hover:border-primary-container bg-surface-container-lowest text-on-surface hover:text-[#3B3FD8] flex items-center justify-center transition-all shadow-sm" data-carousel-prev="" type="button">
+<span class="material-symbols-outlined text-sm font-bold">arrow_back_ios_new</span>
+</button>
+<button aria-label="Next" class="w-8 h-8 rounded-full border border-outline-variant/50 hover:border-primary-container bg-surface-container-lowest text-on-surface hover:text-[#3B3FD8] flex items-center justify-center transition-all shadow-sm" data-carousel-next="" type="button">
+<span class="material-symbols-outlined text-sm font-bold">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- FEATURE 2: Document Drafting -->
+<article class="scroll-mt-28 space-y-8 fade-up-init" data-feature-section="" id="feature-drafting">
+<!-- Text Description & Badge -->
+<div class="space-y-3 max-w-3xl">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-secondary-container/40 text-on-secondary-fixed font-label-caps text-badge-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm text-[#3B3FD8]">edit_document</span>
+              Autonomous Pleading Engine
+            </div>
+<h2 class="font-brand-display-xl text-headline-lg lg:text-3xl text-on-surface">
+              Document Drafting
+            </h2>
+<p class="font-body-default text-body-strong text-secondary leading-relaxed">
+              Autonomous pleading synthesis for Statements of Claim, Section 11 arbitrator appointments, and procedural orders adhering strictly to Order VI Rule 15 CPC.
+            </p>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-2 pt-2 font-body-default text-on-surface text-sm">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Pre-configured pleadings for Section 9, 11, 27, 34, and 37 applications.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Dynamic variable injection for interest schedules and foreign currency conversion.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Institutional style guide enforcement (ICC, SIAC, LCIA, and MCIA).</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Automated Statement of Defense &amp; Counterclaim reconciliation.</span>
+</li>
+</ul>
+</div>
+<!-- Browser Window Frame -->
+<div class="dashboard-frame-wrap">
+<div class="rounded-xl border border-outline-variant/40 bg-surface-container shadow-2xl overflow-hidden dashboard-frame" data-browser-carousel="">
+<!-- macOS Browser Chrome -->
+<div class="bg-[#0B1124] px-4 py-3 flex items-center justify-between border-b border-white/10 select-none">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block shadow-sm"></span>
+<span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block shadow-sm"></span>
+<span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block shadow-sm"></span>
+</div>
+<!-- Address Bar -->
+<div class="flex-1 max-w-xl mx-4">
+<div class="bg-surface-container-highest/15 text-surface-container-lowest text-xs font-mono py-1.5 px-3 rounded-md flex items-center gap-2 border border-white/10 shadow-inner">
+<span class="material-symbols-outlined text-sm text-[#3B3FD8]">lock</span>
+<span class="text-surface-dim font-medium">https://tantara.legal/app/drafts</span>
+<span class="ml-auto text-[10px] text-tertiary-fixed bg-tertiary-container/40 px-1.5 py-0.5 rounded font-label-caps uppercase">Auto-Drafting</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-surface-dim">
+<span class="material-symbols-outlined text-base">download</span>
+<span class="material-symbols-outlined text-base">share</span>
+</div>
+</div>
+<!-- Rich Browser Content Area -->
+<div class="p-4 sm:p-6 bg-gradient-to-b from-surface-container-lowest to-surface">
+<div class="carousel-stage">
+  <!-- Slide 1: Statement of Claim (SOC) -->
+  <div class="carousel-slide active" data-slide-index="0">
+    <div class="rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm p-4 sm:p-5">
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-3 mb-4 border-b border-outline-variant/20 bg-surface-container-low p-3 rounded-lg">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-primary-container text-white">SOC-GEN</span>
+          <span class="text-sm font-semibold text-on-surface">Statement of Claim • Adani Ports v. Apex Maritime Corp</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-1 rounded bg-surface text-secondary font-label-caps">ICC ARB-2024-912</span>
+          <span class="text-emerald-700 bg-emerald-100 dark:bg-emerald-950 dark:text-emerald-300 px-2 py-0.5 rounded font-label-caps">Ready for Verification</span>
+        </div>
+      </div>
+      <div class="bg-surface p-4 rounded-lg border border-outline-variant/20 font-mono text-xs text-on-surface-variant space-y-3 leading-relaxed">
+        <div class="text-center font-bold text-on-surface pb-2 border-b border-outline-variant/20 font-brand-display-xl text-sm">
+          BEFORE THE SOLE ARBITRATOR HON'BLE MR. JUSTICE (RETD.) S.K. SEN<br/>
+          IN THE MATTER OF ARBITRATION UNDER THE 1996 ACT
+        </div>
+        <p class="font-bold text-primary">12. STATEMENT OF MATERIAL BREACH OF CONCESSION AGREEMENT:</p>
+        <p>
+          The Respondent deliberately defaulted on its contractual obligations under Clause 14.2 by failing to clear the maritime dock berths within the stipulated 48-hour turn-around window. Such default constitutes a repudiatory breach under Section 39 of the Indian Contract Act, 1872.
+        </p>
+        <p class="font-bold text-primary">13. PRAYER &amp; LIQUIDATED DAMAGES SCHEDULE:</p>
+        <p>
+          The Claimant respectfully prays for an Award directing the Respondent to pay a sum of ₹44,82,50,000/- together with pendente lite and post-award interest at 18% per annum pursuant to Section 31(7)(b) of the Act.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: Statement of Defense & Counterclaim -->
+  <div class="carousel-slide" data-slide-index="1">
+    <div class="rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm p-4 sm:p-5">
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-3 mb-4 border-b border-outline-variant/20 bg-surface-container-low p-3 rounded-lg">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-amber-600 text-white">SOD-GEN</span>
+          <span class="text-sm font-semibold text-on-surface">Statement of Defense &amp; Counterclaim • Section 16 Objection</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-1 rounded bg-surface text-secondary font-label-caps">SIAC Case ARB-304</span>
+          <span class="text-amber-800 bg-amber-100 dark:bg-amber-950 dark:text-amber-300 px-2 py-0.5 rounded font-label-caps">Preliminary Plea Active</span>
+        </div>
+      </div>
+      <div class="bg-surface p-4 rounded-lg border border-outline-variant/20 font-mono text-xs text-on-surface-variant space-y-3 leading-relaxed">
+        <div class="text-center font-bold text-on-surface pb-2 border-b border-outline-variant/20 font-brand-display-xl text-sm">
+          STATEMENT OF DEFENSE ON BEHALF OF RESPONDENT<br/>
+          WITH PRELIMINARY OBJECTION UNDER SECTION 16
+        </div>
+        <p class="font-bold text-amber-700 dark:text-amber-400">01. PRELIMINARY OBJECTION AS TO TRIBUNAL JURISDICTION:</p>
+        <p>
+          The Arbitral Tribunal lacks jurisdiction over the present dispute in terms of Section 16(2) of the Act as the Claimant failed to exhaust mandatory 30-day senior executive amicable consultations prescribed in Clause 21.1 prior to invoking arbitration.
+        </p>
+        <p class="font-bold text-amber-700 dark:text-amber-400">02. TRAVERSE TO PARAGRAPH 12 (FORCE MAJEURE PLEA):</p>
+        <p>
+          The averments in Paragraph 12 of the SOC are specifically denied. Berthing delay was occasioned solely by unprecedented cyclone alert issued by DG Shipping, constituting Force Majeure under Clause 28.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: Section 9 Urgent Injunction Petition -->
+  <div class="carousel-slide" data-slide-index="2">
+    <div class="rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm p-4 sm:p-5">
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-3 mb-4 border-b border-outline-variant/20 bg-surface-container-low p-3 rounded-lg">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-rose-600 text-white">SEC-9 PET</span>
+          <span class="text-sm font-semibold text-on-surface">Urgent Petition for Injunction • Restraint on Bank Guarantee</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-1 rounded bg-surface text-secondary font-label-caps">OMP (I) (COMM) 144/2024</span>
+          <span class="text-rose-800 bg-rose-100 dark:bg-rose-950 dark:text-rose-300 px-2 py-0.5 rounded font-label-caps">Emergency Filing</span>
+        </div>
+      </div>
+      <div class="bg-surface p-4 rounded-lg border border-outline-variant/20 font-mono text-xs text-on-surface-variant space-y-3 leading-relaxed">
+        <div class="text-center font-bold text-on-surface pb-2 border-b border-outline-variant/20 font-brand-display-xl text-sm">
+          IN THE HIGH COURT OF DELHI AT NEW DELHI<br/>
+          (COMMERCIAL DIVISION) • SECTION 9 PETITION
+        </div>
+        <p class="font-bold text-rose-600">05. IRRETRIEVABLE HARM &amp; BALANCE OF CONVENIENCE:</p>
+        <p>
+          The Petitioner submits that invocation of Performance Bank Guarantee No. BG-9921 for ₹12,50,00,000/- is fraudulent and contrary to express covenants. Unless interim protection under Section 9(1)(ii)(d) is granted forthwith, Petitioner will suffer irreparable insolvency.
+        </p>
+        <p class="font-bold text-rose-600">06. PRAYER FOR INTERIM ORDER:</p>
+        <p>
+          Issue an ad-interim ex-parte injunction restraining Respondent No. 1 from encashing and Respondent No. 2 Bank from disbursing proceeds under Bank Guarantee No. BG-9921 pending constitution of the Arbitral Tribunal.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Procedural Order No. 1 (PO-1) -->
+  <div class="carousel-slide" data-slide-index="3">
+    <div class="rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm p-4 sm:p-5">
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-3 mb-4 border-b border-outline-variant/20 bg-surface-container-low p-3 rounded-lg">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-indigo-600 text-white">PO-1 ENG</span>
+          <span class="text-sm font-semibold text-on-surface">Procedural Order No. 1 • Hearing Timetable &amp; Redfern Schedule</span>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-2 py-1 rounded bg-surface text-secondary font-label-caps">Tribunal Order</span>
+          <span class="text-indigo-800 bg-indigo-100 dark:bg-indigo-950 dark:text-indigo-300 px-2 py-0.5 rounded font-label-caps">MCIA Protocol</span>
+        </div>
+      </div>
+      <div class="bg-surface p-4 rounded-lg border border-outline-variant/20 font-mono text-xs text-on-surface-variant space-y-3 leading-relaxed">
+        <div class="text-center font-bold text-on-surface pb-2 border-b border-outline-variant/20 font-brand-display-xl text-sm">
+          ARBITRAL TRIBUNAL PROCEDURAL ORDER NO. 1<br/>
+          GOVERNING ARBITRAL PROCEEDINGS &amp; CALENDAR
+        </div>
+        <p class="font-bold text-indigo-600">01. DOCUMENT PRODUCTION (REDFERN SCHEDULE PROTOCOL):</p>
+        <p>
+          Requests for document production under IBA Rules on Taking of Evidence (2020) shall be submitted strictly in tabular Redfern Schedule format on or before 15-November-2024. Objections to production shall be lodged by 28-November-2024.
+        </p>
+        <p class="font-bold text-indigo-600">02. E-FILING &amp; BATES STAMPING DIRECTIONS:</p>
+        <p>
+          All electronic hearing bundles shall adhere to TANTARA Master Index Bates standards. Dual-column PDF/A with optical character recognition must be submitted to the Tribunal 14 days prior to evidentiary hearing.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- Carousel Controls Layout Beneath Frame -->
+<div class="bg-surface-container-lowest px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-xs font-label-caps uppercase text-secondary font-semibold">Pleading Templates:</span>
+<!-- Dots (royal blue active) -->
+<div class="flex items-center gap-1.5 ml-2">
+<button aria-label="View 1" class="h-2.5 w-6 rounded-full bg-[#3B3FD8] transition-all" data-carousel-dot="" type="button"></button>
+<button aria-label="View 2" class="h-2.5 w-2.5 rounded-full bg-outline-variant/60 hover:bg-[#3B3FD8]/50 transition-all" data-carousel-dot="" type="button"></button>
+<button aria-label="View 3" class="h-2.5 w-2.5 rounded-full bg-outline-variant/60 hover:bg-[#3B3FD8]/50 transition-all" data-carousel-dot="" type="button"></button>
+<button aria-label="View 4" class="h-2.5 w-2.5 rounded-full bg-outline-variant/60 hover:bg-[#3B3FD8]/50 transition-all" data-carousel-dot="" type="button"></button>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Previous" class="w-8 h-8 rounded-full border border-outline-variant/50 hover:border-primary-container bg-surface-container-lowest text-on-surface hover:text-[#3B3FD8] flex items-center justify-center transition-all shadow-sm" data-carousel-prev="" type="button">
+<span class="material-symbols-outlined text-sm font-bold">arrow_back_ios_new</span>
+</button>
+<button aria-label="Next" class="w-8 h-8 rounded-full border border-outline-variant/50 hover:border-primary-container bg-surface-container-lowest text-on-surface hover:text-[#3B3FD8] flex items-center justify-center transition-all shadow-sm" data-carousel-next="" type="button">
+<span class="material-symbols-outlined text-sm font-bold">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- FEATURE 3: Case Workspace -->
+<article class="scroll-mt-28 space-y-8 fade-up-init" data-feature-section="" id="feature-workspace">
+<!-- Text Description & Badge -->
+<div class="space-y-3 max-w-3xl">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-secondary-container/40 text-on-secondary-fixed font-label-caps text-badge-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm text-[#3B3FD8]">folder_managed</span>
+              Tribunal Docket Hub
+            </div>
+<h2 class="font-brand-display-xl text-headline-lg lg:text-3xl text-on-surface">
+              Case Workspace
+            </h2>
+<p class="font-body-default text-body-strong text-secondary leading-relaxed">
+              Centralised docket intelligence to organize arbitral matters, indexed folios, procedural orders, and tribunal hearing deadlines in IST.
+            </p>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-2 pt-2 font-body-default text-on-surface text-sm">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Live timeline synched with Sole Arbitrator and Tribunal Procedural Order No. 1.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Privilege logs and confidential tribunal-only shared deliberation vaults.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Automated calculation of statutory mandate expiration under Section 29A.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Single-click tribunal transmittal package export with audit timestamps.</span>
+</li>
+</ul>
+</div>
+<!-- Browser Window Frame with High-Fidelity Dashboard representation (using UI screenshot reference https://lh3.googleusercontent.com/aida-public/AB6AXuBaaVqIEKhhUDuXfZl2M7SqrCMkhU0JuVIi8Ex8OZtsUEQaW_cPwMn96WQM9RTvAG1DvhH25rZAbxc_-93HqYyCLipNsmdef23VxW4ragQhI70TjKogM6vTmvCv-xBQLFXf3ONCtx38Wxk7VFZoYY4D9Kv05Zp_SRRwe128FHr5WmLy6Enk6pM6JpbpFo3rSWBiE2fvs4Ahh_gSNXxccXb4d3FhlRVA79xH_LN-BnuDY6awWW5raCFARRHYQL2Gaopj0Q) -->
+<div class="dashboard-frame-wrap">
+<div class="rounded-xl border border-outline-variant/40 bg-surface-container shadow-2xl overflow-hidden dashboard-frame" data-browser-carousel="">
+<!-- macOS Browser Chrome -->
+<div class="bg-[#0B1124] px-4 py-3 flex items-center justify-between border-b border-white/10 select-none">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block shadow-sm"></span>
+<span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block shadow-sm"></span>
+<span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block shadow-sm"></span>
+</div>
+<!-- Address Bar -->
+<div class="flex-1 max-w-xl mx-4">
+<div class="bg-surface-container-highest/15 text-surface-container-lowest text-xs font-mono py-1.5 px-3 rounded-md flex items-center gap-2 border border-white/10 shadow-inner">
+<span class="material-symbols-outlined text-sm text-[#3B3FD8]">lock</span>
+<span class="text-surface-dim font-medium">https://tantara.legal/app/cases</span>
+<span class="ml-auto text-[10px] text-tertiary-fixed bg-tertiary-container/40 px-1.5 py-0.5 rounded font-label-caps uppercase">Docket Hub</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-surface-dim">
+<span class="material-symbols-outlined text-base">notifications</span>
+<span class="material-symbols-outlined text-base">account_circle</span>
+</div>
+</div>
+<!-- Rich Browser Content Area -->
+<div class="p-4 sm:p-6 bg-gradient-to-b from-surface-container-lowest to-surface">
+<div class="carousel-stage">
+  <!-- Slide 1: Active Case Workspace Overview -->
+  <div class="carousel-slide active" data-slide-index="0">
+    <div class="rounded-xl bg-surface-container border border-outline-variant/30 p-4 sm:p-6 shadow-sm">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-5 bg-surface-container-lowest p-4 rounded-lg shadow-sm border border-outline-variant/20">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-primary text-white">LCIA-ARB-918</span>
+            <span class="text-xs bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 px-2 py-0.5 rounded font-label-caps font-bold">HEARING IN PROGRESS</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-on-surface">Titan Infra Consortium vs National Highways Authority of India</h3>
+          <p class="text-xs text-secondary mt-0.5">Seat: New Delhi, India • Sole Arbitrator: Justice (Retd.) B.N. Srikrishna • IST Timetable</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="text-right">
+            <div class="text-xs font-label-caps uppercase text-secondary">Sec 29A Clock</div>
+            <div class="text-lg font-bold text-primary font-mono">127 Days Rem.</div>
+          </div>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-lg border border-outline-variant/30 mb-4 bg-surface-container-lowest">
+        <img loading="lazy" alt="TANTARA Case Workspace High-Fidelity UI" class="w-full h-44 object-cover object-top filter contrast-[1.03]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBaaVqIEKhhUDuXfZl2M7SqrCMkhU0JuVIi8Ex8OZtsUEQaW_cPwMn96WQM9RTvAG1DvhH25rZAbxc_-93HqYyCLipNsmdef23VxW4ragQhI70TjKogM6vTmvCv-xBQLFXf3ONCtx38Wxk7VFZoYY4D9Kv05Zp_SRRwe128FHr5WmLy6Enk6pM6JpbpFo3rSWBiE2fvs4Ahh_gSNXxccXb4d3FhlRVA79xH_LN-BnuDY6awWW5raCFARRHYQL2Gaopj0Q"/>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+        <div class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/20 shadow-sm">
+          <div class="text-xs text-secondary font-label-caps">Total Claim Amount</div>
+          <div class="text-base font-bold text-on-surface font-mono mt-1">₹312.40 Cr</div>
+        </div>
+        <div class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/20 shadow-sm">
+          <div class="text-xs text-secondary font-label-caps">Exhibits Ingested</div>
+          <div class="text-base font-bold text-[#3B3FD8] font-mono mt-1">184 Docs (100% OCR)</div>
+        </div>
+        <div class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/20 shadow-sm">
+          <div class="text-xs text-secondary font-label-caps">Witness Statements</div>
+          <div class="text-base font-bold text-on-surface font-mono mt-1">6 Affidavits Filed</div>
+        </div>
+        <div class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/20 shadow-sm">
+          <div class="text-xs text-secondary font-label-caps">Next Milestone</div>
+          <div class="text-base font-bold text-emerald-600 font-mono mt-1">Oral Cross (14 Nov)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: Procedural Calendar & Hearing Timeline -->
+  <div class="carousel-slide" data-slide-index="1">
+    <div class="rounded-xl bg-surface-container border border-outline-variant/30 p-4 sm:p-6 shadow-sm">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-5 bg-surface-container-lowest p-4 rounded-lg shadow-sm border border-outline-variant/20">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-indigo-600 text-white">CALENDAR-SYNC</span>
+            <span class="text-xs bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300 px-2 py-0.5 rounded font-label-caps font-bold">PROCEDURAL TIMETABLE</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-on-surface">Hybrid Tribunal Hearing Schedule (IST &amp; GMT)</h3>
+          <p class="text-xs text-secondary mt-0.5">Hearing Sessions: India Habitat Centre, Lodhi Road, New Delhi + Video Link London</p>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <div class="p-3.5 rounded-lg bg-surface-container-lowest border-l-4 border-l-[#3B3FD8] border border-outline-variant/20 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <div class="text-xs font-label-caps text-[#3B3FD8] font-bold">14 NOV 2024 • 10:30 - 13:30 IST</div>
+            <div class="text-sm font-bold text-on-surface">Cross-Examination of Claimant's Quantum Expert (CW-1)</div>
+            <div class="text-xs text-secondary">Subject: Delay Analysis &amp; Forensic Cost Disallowances • Folios P-140 to P-182</div>
+          </div>
+          <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">Confirmed Link</span>
+        </div>
+        <div class="p-3.5 rounded-lg bg-surface-container-lowest border-l-4 border-l-amber-500 border border-outline-variant/20 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <div class="text-xs font-label-caps text-amber-600 font-bold">15 NOV 2024 • 14:00 - 17:30 IST</div>
+            <div class="text-sm font-bold text-on-surface">Cross-Examination of Respondent's Project Director (RW-1)</div>
+            <div class="text-xs text-secondary">Subject: Site Handover Delays &amp; Right-of-Way Obstructions • Exhibits R-12 to R-38</div>
+          </div>
+          <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">Stenographer Booked</span>
+        </div>
+        <div class="p-3.5 rounded-lg bg-surface-container-lowest border-l-4 border-l-purple-500 border border-outline-variant/20 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <div class="text-xs font-label-caps text-purple-600 font-bold">22 NOV 2024 • 17:00 IST</div>
+            <div class="text-sm font-bold text-on-surface">Filing of Post-Hearing Written Submissions &amp; Costs Notes</div>
+            <div class="text-xs text-secondary">Simultaneous exchange via TANTARA Secure Registry Transmittal</div>
+          </div>
+          <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300">Statutory Deadline</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: Confidential Deliberations Vault -->
+  <div class="carousel-slide" data-slide-index="2">
+    <div class="rounded-xl bg-surface-container border border-outline-variant/30 p-4 sm:p-6 shadow-sm">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-5 bg-surface-container-lowest p-4 rounded-lg shadow-sm border border-outline-variant/20">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-rose-600 text-white">DELIBERATION-VAULT</span>
+            <span class="text-xs bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 px-2 py-0.5 rounded font-label-caps font-bold">END-TO-END ENCRYPTED</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-on-surface">Tribunal-Only In-Chambers Private Repository</h3>
+          <p class="text-xs text-secondary mt-0.5">Isolated from Party Counsel • Zero-Knowledge Access for Arbitral Tribunal Only</p>
+        </div>
+        <span class="material-symbols-outlined text-3xl text-rose-500">lock_open</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
+        <div class="p-4 rounded-lg bg-surface-container-lowest border border-outline-variant/20 shadow-sm">
+          <div class="flex items-center gap-2 text-primary font-bold text-sm mb-2">
+            <span class="material-symbols-outlined text-base">rate_review</span>
+            Draft Award Concordance (v3.1)
+          </div>
+          <p class="text-xs text-secondary leading-relaxed">
+            Co-arbitrators joint mark-ups on Issue No. 4 (Liquidated Damages vs Penalty). 3 annotations pending Presiding Arbitrator approval.
+          </p>
+          <div class="mt-3 text-[11px] font-mono text-outline font-semibold">Last synced: 28 mins ago by Justice B.N.S.</div>
+        </div>
+        <div class="p-4 rounded-lg bg-surface-container-lowest border border-outline-variant/20 shadow-sm">
+          <div class="flex items-center gap-2 text-primary font-bold text-sm mb-2">
+            <span class="material-symbols-outlined text-base">security</span>
+            Privilege Log &amp; In-Camera Exhibits
+          </div>
+          <p class="text-xs text-secondary leading-relaxed">
+            Confidential proprietary pricing formula submitted under sealed envelope pursuant to Section 27 and IBA Rules Article 9(2)(e).
+          </p>
+          <div class="mt-3 text-[11px] font-mono text-outline font-semibold">Classification: Tribunal Eyes Only</div>
+        </div>
+      </div>
+      <div class="p-3 bg-surface-container-lowest rounded-lg border border-outline-variant/20 flex items-center justify-between text-xs text-secondary">
+        <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-500"></span>Audit trail recorded with SHA-256 tamper detection</span>
+        <span class="font-mono text-[11px]">Audit ID: SEC-DELIB-88219</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Real-time Transcript & Exhibit Matrix -->
+  <div class="carousel-slide" data-slide-index="3">
+    <div class="rounded-xl bg-surface-container border border-outline-variant/30 p-4 sm:p-6 shadow-sm">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-5 bg-surface-container-lowest p-4 rounded-lg shadow-sm border border-outline-variant/20">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-emerald-600 text-white">LIVE-MATRIX</span>
+            <span class="text-xs bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 px-2 py-0.5 rounded font-label-caps font-bold">TRANSCRIPT CROSS-REFERENCE</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-bold text-on-surface">Evidentiary Matrix &amp; Real-Time Stenographer Stream</h3>
+          <p class="text-xs text-secondary mt-0.5">Live hearing indexing with instant citation linking to filed exhibits</p>
+        </div>
+      </div>
+      <div class="p-4 bg-surface-container-lowest rounded-lg border border-outline-variant/20 space-y-2.5 font-mono text-xs">
+        <div class="p-2 rounded bg-surface border border-outline-variant/15 flex items-start gap-2">
+          <span class="text-[#3B3FD8] font-bold shrink-0">[11:22:15 AM]</span>
+          <div>
+            <span class="font-bold text-on-surface">COUNSEL FOR CLAIMANT:</span>
+            <span class="text-on-surface-variant"> "Please direct your attention to Folio P-084, Exhibit C-14, the site handover certificate dated 14th June."</span>
+          </div>
+        </div>
+        <div class="p-2 rounded bg-surface border border-outline-variant/15 flex items-start gap-2">
+          <span class="text-emerald-600 font-bold shrink-0">[11:23:02 AM]</span>
+          <div>
+            <span class="font-bold text-on-surface">CW-1 (WITNESS):</span>
+            <span class="text-on-surface-variant"> "Yes, the site was handed over with express conditions that forest clearance was still pending."</span>
+          </div>
+        </div>
+        <div class="p-2 rounded bg-primary-container/10 border border-primary-container/30 flex items-center justify-between text-[11px] text-[#3B3FD8]">
+          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">link</span> AI Concordance Link: Matched to Claimant Witness Statement Para 19</span>
+          <span class="font-bold underline cursor-pointer">Preview Exhibit C-14 →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- Carousel Controls Layout Beneath Frame -->
+<div class="bg-surface-container-lowest px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-xs font-label-caps uppercase text-secondary font-semibold">Chambers Views:</span>
+<!-- Dots (royal blue active) -->
+<div class="flex items-center gap-1.5 ml-2">
+<button aria-label="View 1" class="h-2.5 w-6 rounded-full bg-[#3B3FD8] transition-all" data-carousel-dot="" type="button"></button>
+<button aria-label="View 2" class="h-2.5 w-2.5 rounded-full bg-outline-variant/60 hover:bg-[#3B3FD8]/50 transition-all" data-carousel-dot="" type="button"></button>
+<button aria-label="View 3" class="h-2.5 w-2.5 rounded-full bg-outline-variant/60 hover:bg-[#3B3FD8]/50 transition-all" data-carousel-dot="" type="button"></button>
+<button aria-label="View 4" class="h-2.5 w-2.5 rounded-full bg-outline-variant/60 hover:bg-[#3B3FD8]/50 transition-all" data-carousel-dot="" type="button"></button>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Previous" class="w-8 h-8 rounded-full border border-outline-variant/50 hover:border-primary-container bg-surface-container-lowest text-on-surface hover:text-[#3B3FD8] flex items-center justify-center transition-all shadow-sm" data-carousel-prev="" type="button">
+<span class="material-symbols-outlined text-sm font-bold">arrow_back_ios_new</span>
+</button>
+<button aria-label="Next" class="w-8 h-8 rounded-full border border-outline-variant/50 hover:border-primary-container bg-surface-container-lowest text-on-surface hover:text-[#3B3FD8] flex items-center justify-center transition-all shadow-sm" data-carousel-next="" type="button">
+<span class="material-symbols-outlined text-sm font-bold">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- FEATURE 4: Automated Filing Bundle & Paperbook -->
+<article class="scroll-mt-28 space-y-8 fade-up-init" data-feature-section="" id="feature-paperbook">
+<!-- Text Description & Badge -->
+<div class="space-y-3 max-w-3xl">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded bg-secondary-container/40 text-on-secondary-fixed font-label-caps text-badge-sm uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm text-[#3B3FD8]">layers</span>
+              Signature Capability
+            </div>
+<h2 class="font-brand-display-xl text-headline-lg lg:text-3xl text-on-surface">
+              Automated Filing Bundle &amp; Paperbook
+            </h2>
+<p class="font-body-default text-body-strong text-secondary leading-relaxed">
+              Compile tribunal-ready digital paperbooks with automated Bates pagination, sequential exhibit numbering, and one-click PDF generation.
+            </p>
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-2 pt-2 font-body-default text-on-surface text-sm">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Uniform continuous folio stamping (Folio P-001 through P-n).</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Automatic generation of verified master index, exhibit markers, and covers.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Strict adherence to High Court Commercial Division &amp; Arbitral Forum e-filing rules.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-[#3B3FD8] text-base mt-0.5">check_circle</span>
+<span>Hyperlinked dynamic bookmarks compatible with all courtroom tablets.</span>
+</li>
+</ul>
+</div>
+<!-- Browser Window Frame -->
+<div class="dashboard-frame-wrap">
+<div class="rounded-xl border border-outline-variant/40 bg-surface-container shadow-2xl overflow-hidden dashboard-frame" data-browser-carousel="">
+<!-- macOS Browser Chrome -->
+<div class="bg-[#0B1124] px-4 py-3 flex items-center justify-between border-b border-white/10 select-none">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block shadow-sm"></span>
+<span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block shadow-sm"></span>
+<span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block shadow-sm"></span>
+</div>
+<!-- Address Bar -->
+<div class="flex-1 max-w-xl mx-4">
+<div class="bg-surface-container-highest/15 text-surface-container-lowest text-xs font-mono py-1.5 px-3 rounded-md flex items-center gap-2 border border-white/10 shadow-inner">
+<span class="material-symbols-outlined text-sm text-[#3B3FD8]">lock</span>
+<span class="text-surface-dim font-medium">https://tantara.legal/app/paperbook</span>
+<span class="ml-auto text-[10px] text-tertiary-fixed bg-tertiary-container/40 px-1.5 py-0.5 rounded font-label-caps uppercase">Bundle Assembler</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-surface-dim">
+<span class="material-symbols-outlined text-base">print</span>
+<span class="material-symbols-outlined text-base">picture_as_pdf</span>
+</div>
+</div>
+<!-- Rich Browser Content Area -->
+<div class="p-4 sm:p-6 bg-gradient-to-b from-surface-container-lowest to-surface">
+<div class="carousel-stage">
+  <!-- Slide 1: Digital Paperbook Assembler -->
+  <div class="carousel-slide active" data-slide-index="0">
+    <div class="rounded-xl bg-surface-container-lowest shadow-md border border-outline-variant/30 p-4 sm:p-5">
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-3 mb-4 bg-[#0B1124] text-surface-container-lowest p-3.5 rounded-lg shadow-sm">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-primary-container text-white">BATES MASTER</span>
+            <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-label-caps">Continuous Folio Stamped</span>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-white">Consolidated Tribunal Hearing Bundle • Volume I &amp; II</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="px-3 py-1.5 rounded bg-primary-container text-white text-xs font-semibold hover:bg-primary transition-all flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">download</span>
+            Export PDF/A
+          </button>
+        </div>
+      </div>
+      <div class="border border-outline-variant/30 rounded-lg overflow-hidden bg-surface-container-low">
+        <div class="bg-surface px-4 py-2 border-b border-outline-variant/20 flex items-center justify-between text-xs font-label-caps text-secondary font-bold">
+          <span>Item / Document Description</span>
+          <div class="flex items-center gap-6">
+            <span>Date</span>
+            <span>Folio Range</span>
+            <span>Status</span>
+          </div>
+        </div>
+        <div class="divide-y divide-outline-variant/15 text-xs font-body-default bg-surface-container-lowest">
+          <div class="px-4 py-3 flex items-center justify-between hover:bg-surface-container transition-colors">
+            <div class="flex items-center gap-2 font-medium text-on-surface">
+              <span class="material-symbols-outlined text-base text-primary">description</span>
+              Master Index &amp; Procedural Chronology
+            </div>
+            <div class="flex items-center gap-6 font-mono text-secondary">
+              <span>01-Nov-2024</span>
+              <span class="font-bold text-on-surface">P-001 - P-012</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">INDEXED</span>
+            </div>
+          </div>
+          <div class="px-4 py-3 flex items-center justify-between hover:bg-surface-container transition-colors">
+            <div class="flex items-center gap-2 font-medium text-on-surface">
+              <span class="material-symbols-outlined text-base text-primary">feed</span>
+              Statement of Claim with Verification Affidavit
+            </div>
+            <div class="flex items-center gap-6 font-mono text-secondary">
+              <span>12-Sep-2024</span>
+              <span class="font-bold text-on-surface">P-013 - P-094</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">BATES OK</span>
+            </div>
+          </div>
+          <div class="px-4 py-3 flex items-center justify-between hover:bg-surface-container transition-colors">
+            <div class="flex items-center gap-2 font-medium text-on-surface">
+              <span class="material-symbols-outlined text-base text-primary">folder</span>
+              Claimant's Exhibit C-1 to C-42 (Commercial Contract &amp; Notices)
+            </div>
+            <div class="flex items-center gap-6 font-mono text-secondary">
+              <span>Various</span>
+              <span class="font-bold text-on-surface">P-095 - P-382</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">OCR VERIFIED</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-3 flex items-center justify-between text-xs text-secondary font-mono">
+        <span>Folio Format: [TITAN v. NHAI | ARB/2024/09 | FOLIO P-###]</span>
+        <span class="text-primary font-bold">Total Pages: 382 Folios • Ready for Submission</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 2: Master Index & Exhibit Markers -->
+  <div class="carousel-slide" data-slide-index="1">
+    <div class="rounded-xl bg-surface-container-lowest shadow-md border border-outline-variant/30 p-4 sm:p-5">
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-3 mb-4 bg-[#0B1124] text-surface-container-lowest p-3.5 rounded-lg shadow-sm">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-primary-container text-white">INDEX-GEN</span>
+            <span class="text-xs bg-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded font-label-caps">Automated Master Index</span>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-white">Verified Exhibit Marker &amp; Pagination Engine</h3>
+        </div>
+      </div>
+      <div class="space-y-2.5 font-mono text-xs">
+        <div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/20 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="px-2 py-1 rounded bg-[#3B3FD8] text-white font-bold">EXHIBIT C-1</span>
+            <span class="font-medium text-on-surface">Notice Invoking Arbitration under Section 21</span>
+          </div>
+          <span class="text-secondary">Folio P-095 to P-102 • Original in English</span>
+        </div>
+        <div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/20 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="px-2 py-1 rounded bg-[#3B3FD8] text-white font-bold">EXHIBIT C-2</span>
+            <span class="font-medium text-on-surface">Engineering Procurement &amp; Construction (EPC) Agreement</span>
+          </div>
+          <span class="text-secondary">Folio P-103 to P-240 • Duly Stamped (₹500)</span>
+        </div>
+        <div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/20 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="px-2 py-1 rounded bg-[#3B3FD8] text-white font-bold">EXHIBIT C-3</span>
+            <span class="font-medium text-on-surface">Engineer-in-Charge Final Dispute Adjudication Rejection</span>
+          </div>
+          <span class="text-secondary">Folio P-241 to P-268 • Certified True Copy</span>
+        </div>
+      </div>
+      <div class="mt-3 p-2.5 bg-emerald-50 dark:bg-emerald-950/40 rounded-lg border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-800 dark:text-emerald-200 flex items-center justify-between">
+        <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-sm">check_circle</span> All 42 exhibit bookmarks verified with bidirectional jump points</span>
+        <span class="font-mono font-bold">100% Concordant</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 3: Commercial Division Compliance Validator -->
+  <div class="carousel-slide" data-slide-index="2">
+    <div class="rounded-xl bg-surface-container-lowest shadow-md border border-outline-variant/30 p-4 sm:p-5">
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-3 mb-4 bg-[#0B1124] text-surface-container-lowest p-3.5 rounded-lg shadow-sm">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-emerald-600 text-white">E-FILING AUDIT</span>
+            <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-label-caps">High Court Rules Compliant</span>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-white">Commercial Courts Practice &amp; Procedure Verification</h3>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+        <div class="p-3.5 rounded-lg bg-surface border border-outline-variant/20 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2 text-emerald-600 font-bold">
+            <span class="material-symbols-outlined text-base">verified</span>
+            PDF/A-1b Standard Check
+          </div>
+          <p class="text-secondary">Embedded fonts, device-independent color spaces, and 300 DPI image resolution strictly confirmed.</p>
+          <div class="text-[10px] font-mono text-emerald-700 dark:text-emerald-300 font-bold pt-1">PASSED • ZERO CORRUPTION RISK</div>
+        </div>
+        <div class="p-3.5 rounded-lg bg-surface border border-outline-variant/20 space-y-1.5 text-xs">
+          <div class="flex items-center gap-2 text-emerald-600 font-bold">
+            <span class="material-symbols-outlined text-base">verified</span>
+            Gutter Margin &amp; Page Numbering
+          </div>
+          <p class="text-secondary">Left margin set to 4.0 cm for registry binding; top-right Bates pagination rendered in 11pt mono.</p>
+          <div class="text-[10px] font-mono text-emerald-700 dark:text-emerald-300 font-bold pt-1">PASSED • RULE 3 COMPLIANT</div>
+        </div>
+      </div>
+      <div class="p-3 bg-surface-container-low rounded-lg border border-outline-variant/20 flex items-center justify-between text-xs font-mono">
+        <span class="text-on-surface">Registry Checksum: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
+        <span class="text-emerald-600 font-bold">Validated</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide 4: Tablet Courtroom Presentation View -->
+  <div class="carousel-slide" data-slide-index="3">
+    <div class="rounded-xl bg-surface-container-lowest shadow-md border border-outline-variant/30 p-4 sm:p-5">
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-3 mb-4 bg-[#0B1124] text-surface-container-lowest p-3.5 rounded-lg shadow-sm">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-amber-500 text-black">TABLET-SYNC</span>
+            <span class="text-xs bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-label-caps">Courtroom Presentation Mode</span>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-white">Live Dual-Pane Tablet Viewer with Instant Stylus Annotation</h3>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+        <div class="p-3 rounded-lg bg-surface border border-outline-variant/20 font-mono space-y-2">
+          <div class="text-[11px] font-bold text-primary flex items-center justify-between border-b border-outline-variant/20 pb-1">
+            <span>LEFT PANE: PLEADING (FOLIO P-042)</span>
+            <span class="material-symbols-outlined text-sm">open_in_full</span>
+          </div>
+          <p class="text-on-surface-variant leading-relaxed">
+            "As demonstrated in Exhibit C-14 Clause 18.2, liquidated damages were expressly capped at 5% of Contract Value, rendering the Respondent's forfeiture of 15% completely unlawful."
+          </p>
+        </div>
+        <div class="p-3 rounded-lg bg-amber-50/70 dark:bg-amber-950/30 border border-amber-300 dark:border-amber-700 font-mono space-y-2">
+          <div class="text-[11px] font-bold text-amber-800 dark:text-amber-200 flex items-center justify-between border-b border-amber-300/40 pb-1">
+            <span>RIGHT PANE: EXHIBIT C-14 (FOLIO P-168)</span>
+            <span class="text-[10px] bg-amber-200 dark:bg-amber-800 px-1 rounded">LIVE ANNOTATION</span>
+          </div>
+          <p class="text-amber-950 dark:text-amber-100 bg-yellow-200/50 dark:bg-yellow-800/40 p-1.5 rounded leading-relaxed">
+            "Clause 18.2: Under no circumstances shall total aggregate damages under this EPC Agreement exceed 5% of the total Initial Contract Value."
+          </p>
+        </div>
+      </div>
+      <div class="mt-3 flex items-center justify-between text-xs text-secondary font-label-caps">
+        <span>Dual view active for Arbitral Hearing</span>
+        <span class="text-primary font-bold cursor-pointer hover:underline">Toggle Fullscreen Presentation Mode ↗</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- Carousel Controls Layout Beneath Frame -->
+<div class="bg-surface-container-lowest px-6 py-3 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-xs font-label-caps uppercase text-secondary font-semibold">Paperbook Views:</span>
+<!-- Dots (royal blue active) -->
+<div class="flex items-center gap-1.5 ml-2">
+<button aria-label="View 1" class="h-2.5 w-6 rounded-full bg-[#3B3FD8] transition-all" data-carousel-dot="" type="button"></button>
+<button aria-label="View 2" class="h-2.5 w-2.5 rounded-full bg-outline-variant/60 hover:bg-[#3B3FD8]/50 transition-all" data-carousel-dot="" type="button"></button>
+<button aria-label="View 3" class="h-2.5 w-2.5 rounded-full bg-outline-variant/60 hover:bg-[#3B3FD8]/50 transition-all" data-carousel-dot="" type="button"></button>
+<button aria-label="View 4" class="h-2.5 w-2.5 rounded-full bg-outline-variant/60 hover:bg-[#3B3FD8]/50 transition-all" data-carousel-dot="" type="button"></button>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Previous" class="w-8 h-8 rounded-full border border-outline-variant/50 hover:border-primary-container bg-surface-container-lowest text-on-surface hover:text-[#3B3FD8] flex items-center justify-center transition-all shadow-sm" data-carousel-prev="" type="button">
+<span class="material-symbols-outlined text-sm font-bold">arrow_back_ios_new</span>
+</button>
+<button aria-label="Next" class="w-8 h-8 rounded-full border border-outline-variant/50 hover:border-primary-container bg-surface-container-lowest text-on-surface hover:text-[#3B3FD8] flex items-center justify-center transition-all shadow-sm" data-carousel-next="" type="button">
+<span class="material-symbols-outlined text-sm font-bold">arrow_forward_ios</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</section>
+<!-- Coming Soon Strip (Autonomous AI Agents) -->
+<section class="w-full py-space-xl lg:py-24 fade-up-init bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="relative rounded-2xl bg-gradient-to-br from-on-surface via-inverse-surface to-on-surface text-surface-container-lowest p-space-xl lg:p-16 shadow-2xl overflow-hidden">
+<!-- Living accent highlight -->
+<div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary-container/30 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<div class="lg:col-span-8 space-y-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-highest/20 text-tertiary-fixed font-label-caps text-badge-sm uppercase tracking-widest">
+<span class="material-symbols-outlined text-sm">smart_toy</span>
+              Next-Generation Legal Intelligence
+            </div>
+<h2 class="font-brand-display-xl text-brand-display-xl text-surface-container-lowest leading-tight">
+              Autonomous AI Agents for Arbitration Practice
+            </h2>
+<p class="font-body-default text-title-sm text-surface-dim leading-relaxed max-w-3xl">
+              Next-generation procedural agents engineered to independently verify jurisdictional objections under Section 16, scan Redfern Schedules under IBA Rules on the Taking of Evidence, and autonomously cross-examine draft evidentiary bundles.
+            </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs font-body-secondary text-body-secondary text-outline-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-sm">shield</span>
+<span>Jurisdiction Verification</span>
+</div>
+<span>•</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-sm">table_view</span>
+<span>IBA Document Production Audit</span>
+</div>
+<span>•</span>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-sm">psychology</span>
+<span>Tribunal Award Pre-computation</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-space-md">
+<span class="font-label-caps text-label-caps px-space-md py-1.5 rounded bg-tertiary-container text-tertiary-fixed uppercase font-semibold tracking-wider text-left lg:text-right">
+              In Pilot Testing with Premier Chambers • Early Access Q4 2025
+            </span>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs px-space-lg py-3 rounded-lg bg-[#3B3FD8] hover:bg-primary text-on-primary font-body-strong text-body-medium shadow-lg transition-all" type="button">
+<span>Apply for Early Access</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works Section (3-Step Procedural Workflow) -->
+<section class="w-full py-space-xl lg:py-24 fade-up-init bg-surface" id="how-it-works">
+<div class="max-w-7xl mx-auto px-margin">
+<!-- Section Header -->
+<div class="text-center max-w-3xl mx-auto mb-space-xl">
+<span class="font-label-caps text-label-caps text-primary uppercase font-bold tracking-widest block mb-space-xs">
+          TRIED &amp; TESTED ARBITRAL PROTOCOL
+        </span>
+<h2 class="font-brand-display-xl text-headline-lg lg:text-4xl text-on-surface">
+          How TANTARA Powers Your Hearing Pipeline
+        </h2>
+<p class="font-body-default text-body-strong text-secondary mt-space-sm">
+          From unorganized commercial dispute folios to an airtight, tribunal-ready filing in three calibrated steps.
+        </p>
+</div>
+<!-- 3 Steps Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg relative">
+<!-- Step 1 -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between border border-outline-variant/20">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-brand-display-xl text-brand-display-xl text-primary font-bold">01</span>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-[#3B3FD8]">
+<span class="material-symbols-outlined text-2xl">upload_file</span>
+</div>
+</div>
+<h3 class="font-title-sm text-headline-md text-on-surface mb-space-xs">
+              Upload
+            </h3>
+<p class="font-body-default text-body-secondary text-secondary leading-relaxed">
+              Ingest case notices, commercial agreements, procedural orders, and scanned evidence. Supports automated OCR, multi-language contracts, and instant optical alignment.
+            </p>
+</div>
+<div class="mt-space-md pt-space-sm font-label-caps text-label-caps text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sm text-tertiary">document_scanner</span>
+<span>PDF, DOCX, scanned tiff supported</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between border border-outline-variant/20">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-brand-display-xl text-brand-display-xl text-primary font-bold">02</span>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-[#3B3FD8]">
+<span class="material-symbols-outlined text-2xl">neurology</span>
+</div>
+</div>
+<h3 class="font-title-sm text-headline-md text-on-surface mb-space-xs">
+              Ask
+            </h3>
+<p class="font-body-default text-body-secondary text-secondary leading-relaxed">
+              Query the TANTARA Arbitration Intelligence model on jurisdictional clauses, seat determination, statutory limitation deadlines, or conflicting arbitral precedents.
+            </p>
+</div>
+<div class="mt-space-md pt-space-sm font-label-caps text-label-caps text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sm text-tertiary">psychology_alt</span>
+<span>Contextual Act 1996 vector recall</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between border border-outline-variant/20">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-brand-display-xl text-brand-display-xl text-primary font-bold">03</span>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-[#3B3FD8]">
+<span class="material-symbols-outlined text-2xl">fact_check</span>
+</div>
+</div>
+<h3 class="font-title-sm text-headline-md text-on-surface mb-space-xs">
+              Draft &amp; Collate
+            </h3>
+<p class="font-body-default text-body-secondary text-secondary leading-relaxed">
+              Synthesize pleadings, generate tribunal-compliant statements, and assemble continuous Bates-paginated paperbooks with automated exhibits and live TOC indices.
+            </p>
+</div>
+<div class="mt-space-md pt-space-sm font-label-caps text-label-caps text-on-surface-variant flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sm text-tertiary">check_circle</span>
+<span>Ready for registry submission</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final High-Impact CTA Banner -->
+<section class="w-full py-space-xl lg:py-24 fade-up-init bg-surface">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="rounded-2xl bg-gradient-to-r from-primary-container via-[#1e1dc2] to-primary-container p-space-xl lg:p-16 text-center text-on-primary shadow-xl relative overflow-hidden">
+<!-- Background Pattern Ring -->
+<div class="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-tertiary-fixed/20 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
+<span class="font-label-caps text-label-caps text-on-primary-container uppercase tracking-widest font-bold mb-space-sm">
+            ELEVATE YOUR ARBITRATION CHAMBER
+          </span>
+<h2 class="font-brand-display-xl text-headline-lg lg:text-4xl text-on-primary tracking-tight leading-tight mb-space-md">
+            Start running your arbitration matters with institutional velocity
+          </h2>
+<p class="font-body-default text-title-sm text-primary-fixed mb-space-xl max-w-xl">
+            Join international dispute counsel, retired judges, and dispute resolution practices already accelerating their hearings with TANTARA.
+          </p>
+<a class="inline-flex items-center gap-space-xs px-space-xl py-3.5 rounded-lg bg-surface-container-lowest text-[#3B3FD8] font-body-strong text-body-medium shadow-lg hover:bg-surface-container-low transition-all" data-path="register" href="./tantara_sign_up/code.html">
+<span class="material-symbols-outlined text-lg">rocket_launch</span>
+<span>Create Free Account</span>
+</a>
+<p class="font-label-caps text-label-caps text-on-primary-container mt-space-md">
+            No credit card required • Instant access to Free Chambers Tier
+          </p>
+</div>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-[#0B1124] text-surface-dim py-space-xl"><div class="w-full px-margin mx-auto grid grid-cols-1 md:grid-cols-4 gap-space-xl"><div class="space-y-space-sm"><div class="flex items-center gap-space-xs"><img loading="lazy"  alt="Tantara Logo" class="h-9 w-auto object-contain rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_9ypp4b3Oi8KpKpzDN_fnVi5y2SGjRVcQQa2LzWB-kx7THNKX3gdmqiYlEOl0uzXAmbjwtRh14ASksMKGakDGX0bn7QooFCL_V6cybX4jJWiKOQbPZvuoFUD-SxwKqBvNYhQwtWmNSzKXWuaabYEOAAykft-716roYj88ElhDyc26DCE2KkUMx7GV4IrJhDAUqoX6VLqvoThEWnnTKbXmzWaJCugc21kKDvM-nuZlxvJxCPSUW838H5Kd8LvfZeWOGA"/><span class="font-brand-display-xl text-headline-md tracking-wider text-surface-container-lowest font-bold">TANTARA</span><span class="font-label-caps text-badge-sm px-space-xs py-0.5 rounded bg-tertiary-container text-tertiary-fixed">Chambers Engine</span></div><p class="font-body-secondary text-body-secondary text-outline-variant max-w-sm">High-trust digital arbitration infrastructure and institutional case ledger built for international dispute counsel and arbitral tribunals.</p><div class="pt-space-xs font-label-caps text-label-caps text-surface-container-high"><span class="material-symbols-outlined text-sm align-middle mr-1 text-tertiary-fixed">schedule</span>IST Desk: 09:30 – 18:30 IST (Mon–Fri)</div></div><div class="space-y-space-sm"><h3 class="font-title-sm text-title-sm text-surface-container-lowest">Arbitration Forums</h3><ul class="space-y-space-xs font-body-secondary text-body-secondary"><li class="hover:text-surface-container-lowest transition-colors">SIAC Rules Integration</li><li class="hover:text-surface-container-lowest transition-colors">ICC International Court of Arbitration</li><li class="hover:text-surface-container-lowest transition-colors">LCIA Arbitration Rules</li><li class="hover:text-surface-container-lowest transition-colors">MCIA Domestic &amp; International</li><li class="hover:text-surface-container-lowest transition-colors">UNCITRAL Model Law Repositories</li></ul></div><div class="space-y-space-sm"><h3 class="font-title-sm text-title-sm text-surface-container-lowest">Chamber Platform</h3><ul class="space-y-space-xs font-body-secondary text-body-secondary"><li><a class="hover:text-surface-container-lowest transition-colors" data-path="features" href="./features.html">Arbitral Dossier Automation</a></li><li><a class="hover:text-surface-container-lowest transition-colors" data-path="features" href="./features.html">Procedural Timetable Sync</a></li><li><a class="hover:text-surface-container-lowest transition-colors" data-path="features" href="./features.html">Tribunal Deliberation Chambers</a></li><li><a class="hover:text-surface-container-lowest transition-colors" data-path="pricing" href="./pricing.html">Institutional Scale Licensure</a></li><li><a class="hover:text-surface-container-lowest transition-colors" data-path="login" href="./tantara_login/code.html">Advocate Sign In</a></li></ul></div><div class="space-y-space-sm"><h3 class="font-title-sm text-title-sm text-surface-container-lowest">Statutory Compliance</h3><p class="font-body-secondary text-body-secondary text-outline-variant leading-relaxed">Engineered strictly pursuant to the Arbitration and Conciliation Act, 1996 (as amended 2015, 2019 &amp; 2021), the New York Convention on the Recognition and Enforcement of Foreign Arbitral Awards, and international cyber protocol mandates.</p><div class="pt-space-xs flex items-center gap-space-xs text-badge-sm font-label-caps text-tertiary-fixed-dim"><span class="material-symbols-outlined text-sm">gavel</span>Arbitral Immunity &amp; Confidentiality Secured</div></div></div><div class="w-full px-margin mx-auto mt-space-lg pt-space-md flex flex-col md:flex-row items-center justify-between font-body-secondary text-body-secondary text-outline-variant gap-space-sm"><p>© 2025 TANTARA Arbitration Systems. All rights reserved under applicable institutional convention.</p><div class="flex items-center gap-space-lg font-label-caps text-badge-sm"><span>ISO/IEC 27001 Certified</span><span>SOC-2 Type II Attested</span><span>E-Filing Standard Validated</span></div></div></footer></body></html>

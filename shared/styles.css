@@ -1,0 +1,165 @@
+/**
+ * TANTARA Legal Workspace - Unified Design System Stylesheet
+ * Strictly matching DESIGN.md tokens & institutional legal precision aesthetics
+ */
+
+:root {
+  /* Brand & Shell Colors */
+  --color-primary: #1e1dc2;
+  --color-primary-action: #3b3fd8;
+  --color-primary-container: #3b3fd8;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #c7c8ff;
+  --color-secondary-shell: #0b1437;
+  --color-secondary-shell-hover: #16204d;
+  --color-sidebar-active: #1b255a;
+  
+  /* Surface & Canvas Architecture */
+  --color-canvas: #f4f6fb;
+  --color-surface: #f8f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eff4ff;
+  --color-surface-container: #e5eeff;
+  --color-surface-container-high: #dce9ff;
+  --color-surface-container-highest: #d3e4fe;
+  --color-on-surface: #0b1c30;
+  --color-on-surface-variant: #454555;
+  --color-outline: #767587;
+  --color-outline-variant: #c6c5d8;
+  --color-border: #e2e8f0;
+
+  /* Status Accents */
+  --color-status-active-bg: #ecfdf5;
+  --color-status-active-text: #059669;
+  --color-status-pending-bg: #fffbeb;
+  --color-status-pending-text: #d97706;
+  --color-status-closed-bg: #fef2f2;
+  --color-status-closed-text: #dc2626;
+
+  /* Typography Stacks */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Arimo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-label: 'Chivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Elevation Shadows */
+  --shadow-level-1: 0 1px 3px 0 rgba(11, 20, 55, 0.04), 0 1px 2px -1px rgba(11, 20, 55, 0.02);
+  --shadow-level-2: 0 4px 12px -2px rgba(11, 20, 55, 0.08), 0 2px 6px -2px rgba(11, 20, 55, 0.04);
+  --shadow-level-3: 0 10px 25px -3px rgba(11, 20, 55, 0.12), 0 4px 10px -2px rgba(11, 20, 55, 0.06);
+}
+
+/* Base resets & ergonomics */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+/* Scrollbar clean display */
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Shared Sidebar standard dimensions */
+.tantara-sidebar {
+  width: 260px;
+  background-color: var(--color-secondary-shell);
+  color: var(--color-surface);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Shared Top Header standard */
+.tantara-header {
+  height: 64px;
+  left: 260px;
+}
+
+/* Active navigation item styling in sidebar */
+.tantara-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
+  color: #94a3b8;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+}
+
+.tantara-nav-item:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.tantara-nav-item.active {
+  color: #ffffff;
+  background-color: var(--color-sidebar-active);
+  font-weight: 600;
+}
+
+.tantara-nav-item.active .material-symbols-outlined {
+  color: #818cf8;
+}
+
+/* Submenu items under Drafts & Documents */
+.tantara-subnav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 0.375rem;
+  color: #cbd5e1;
+  font-size: 12px;
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+}
+
+.tantara-subnav-item:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.tantara-subnav-item.active {
+  color: #ffffff;
+  background-color: var(--color-primary-action);
+  font-weight: 600;
+}
+
+/* Quote carousel animation */
+.tantara-quote-fade {
+  animation: tantaraQuoteFadeIn 0.5s ease-in-out;
+}
+
+@keyframes tantaraQuoteFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus states */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--color-primary-action);
+  outline-offset: 2px;
+}

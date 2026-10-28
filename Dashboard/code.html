@@ -1,0 +1,481 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<title>Tantara - Dashboard</title><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&amp;family=Chivo:wght@500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+<style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-variant": "#d3e4fe", "secondary-fixed": "#dde1ff", "surface-bright": "#f8f9ff", "on-tertiary-container": "#81d7ff", "on-secondary-fixed-variant": "#3d456a", "surface": "#f8f9ff", "outline": "#767587", "tertiary-container": "#005e7b", "primary-fixed": "#e1e0ff", "tertiary-fixed-dim": "#6ed2fe", "tertiary-fixed": "#bfe9ff", "inverse-on-surface": "#eaf1ff", "surface-container-lowest": "#ffffff", "secondary": "#545c83", "error-container": "#ffdad6", "on-tertiary-fixed-variant": "#004d65", "on-background": "#0b1c30", "on-primary-fixed-variant": "#2829c8", "on-tertiary-fixed": "#001f2a", "on-error-container": "#93000a", "surface-container-low": "#eff4ff", "on-surface-variant": "#454555", "surface-container-highest": "#d3e4fe", "surface-container-high": "#dce9ff", "inverse-surface": "#213145", "secondary-fixed-dim": "#bcc4f1", "inverse-primary": "#c0c1ff", "on-surface": "#0b1c30", "on-secondary-fixed": "#10193c", "background": "#f8f9ff", "on-primary": "#ffffff", "on-error": "#ffffff", "on-secondary-container": "#515980", "secondary-container": "#cad2ff", "surface-dim": "#cbdbf5", "primary-fixed-dim": "#c0c1ff", "on-tertiary": "#ffffff", "primary": "#1e1dc2", "on-primary-container": "#c7c8ff", "tertiary": "#00455b", "on-primary-fixed": "#03006d", "surface-container": "#e5eeff", "on-secondary": "#ffffff", "surface-tint": "#4448e0", "error": "#ba1a1a", "outline-variant": "#c6c5d8", "primary-container": "#3b3fd8" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.25rem", "space-sm": "0.5rem", "space-md": "0.75rem", "space-xl": "1.75rem", "space-xs": "0.25rem", "gutter": "1rem", "margin": "1.5rem" }, "fontFamily": { "brand-display-xl": [ "Playfair Display" ], "body-secondary": [ "Arimo" ], "brand-quote-lg": [ "Playfair Display" ], "title-sm": [ "Chivo" ], "body-medium": [ "Arimo" ], "label-caps": [ "Chivo" ], "body-strong": [ "Arimo" ], "headline-lg": [ "Arimo" ], "badge-sm": [ "Chivo" ], "table-cell": [ "Arimo" ], "body-default": [ "Arimo" ], "headline-md": [ "Arimo" ] }, "fontSize": { "brand-display-xl": [ "36px", { "lineHeight": "44px", "letterSpacing": "0.02em", "fontWeight": "700" } ], "body-secondary": [ "12px", { "lineHeight": "18px", "fontWeight": "400" } ], "brand-quote-lg": [ "22px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "title-sm": [ "15px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600" } ], "body-medium": [ "13px", { "lineHeight": "20px", "fontWeight": "500" } ], "label-caps": [ "11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" } ], "body-strong": [ "13px", { "lineHeight": "20px", "fontWeight": "600" } ], "headline-lg": [ "24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" } ], "badge-sm": [ "11px", { "lineHeight": "14px", "fontWeight": "600" } ], "table-cell": [ "12px", { "lineHeight": "18px", "fontWeight": "500" } ], "body-default": [ "13px", { "lineHeight": "20px", "fontWeight": "400" } ], "headline-md": [ "18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" } ] } } } };</script><link rel="stylesheet" href="../shared/styles.css">
+</head><body class="bg-surface font-body-default text-body-default text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-[#0B1437] text-surface z-50 flex flex-col justify-between select-none">
+<div class="flex flex-col flex-1 min-h-0">
+<div class="h-16 px-6 flex items-center gap-3">
+<a href="../tantara_dashboard/code.html" class="flex items-center gap-3 text-inherit no-underline">
+<img alt="TANTARA Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WajxNzMeztbQQWQ6AF3W7-4HngZ7LyPUueN38E5bB_wV7j6DVHtjMi9swW1XF6psRJ6xxPUguKvke_pXmdP7P8K3Oelm3SEnDcdp9HRWMK8AbX41jpYj3WO_qAq1NomWU9IAIdj6F7MPyVh1HHxzWkFDvSwRmBaKMklKHYJXc1d8qXQa6r4yC_DfmiAa7R_3XrQd8mT6QfowYYn1QbyoUBbdkIT5NNZPIUO3g7KPqExFW4_Cth5gYKXQ">
+<div class="flex flex-col">
+<span class="font-title-sm text-title-sm text-surface-container-lowest tracking-wider uppercase font-bold">TANTARA</span>
+<span class="font-label-caps text-[9px] text-tertiary-fixed-dim uppercase tracking-widest leading-none">Arbitration OS</span>
+</div>
+</a>
+</div>
+<div class="px-4 py-2">
+<div class="h-px w-full bg-outline/20 mb-3"></div>
+<span class="px-3 font-label-caps text-label-caps uppercase text-outline tracking-wider block mb-2">Practice Modules</span>
+</div>
+<nav class="flex-1 px-3 space-y-1 overflow-y-auto">
+<a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all group bg-primary-container text-on-primary font-body-strong shadow-[0_2px_8px_rgba(59,63,216,0.35)]" data-path="dashboard" href="../tantara_dashboard/code.html">
+<span class="material-symbols-outlined text-[20px] text-surface-container-lowest transition-colors">dashboard</span>
+<span class="font-body-medium text-body-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:bg-[#152259] hover:text-surface-container-lowest transition-all group" data-path="my-cases" href="../tantara_case_management/code.html">
+<span class="material-symbols-outlined text-[20px] text-slate-400 group-hover:text-surface-container-lowest transition-colors">gavel</span>
+<span class="font-body-medium text-body-medium">My Cases</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:bg-[#152259] hover:text-surface-container-lowest transition-all group" data-path="research-desk" href="#">
+<span class="material-symbols-outlined text-[20px] text-slate-400 group-hover:text-surface-container-lowest transition-colors">menu_book</span>
+<span class="font-body-medium text-body-medium">Research Desk</span>
+</a>
+<div class="flex flex-col space-y-1">
+<button id="nav-drafts-toggle" type="button" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-slate-300 hover:bg-[#152259] hover:text-surface-container-lowest transition-all group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px] text-slate-400 group-hover:text-surface-container-lowest transition-colors">description</span>
+<span class="font-body-medium text-body-medium">Drafts &amp; Documents</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-slate-400 group-hover:text-surface-container-lowest transition-transform" id="nav-drafts-icon">expand_more</span>
+</button>
+<div id="nav-drafts-submenu" class="pl-9 pr-2 py-1 space-y-1 flex flex-col hidden">
+<a class="flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[12px] text-slate-300 hover:text-surface-container-lowest hover:bg-[#152259] transition-all group font-body-default" data-path="document-upload" href="../tantara_document_upload_ai_read/code.html">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim group-hover:text-surface-container-lowest">upload_file</span>
+<span>Document Upload &amp; AI Read</span>
+</a>
+<a class="flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[12px] text-slate-300 hover:text-surface-container-lowest hover:bg-[#152259] transition-all group font-body-default" data-path="ai-case-drafts" href="../tantara_ai_case_drafts/code.html">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim group-hover:text-surface-container-lowest">auto_awesome</span>
+<span>AI Case Drafts</span>
+</a>
+<a class="flex items-center gap-2 px-2.5 py-1.5 rounded-md text-[12px] text-slate-300 hover:text-surface-container-lowest hover:bg-[#152259] transition-all group font-body-default" data-path="smart-autofill" href="../tantara_smart_autofill/code.html">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim group-hover:text-surface-container-lowest">edit_note</span>
+<span>Smart Autofills</span>
+</a>
+</div>
+</div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:bg-[#152259] hover:text-surface-container-lowest transition-all group" data-path="calendar" href="#">
+<span class="material-symbols-outlined text-[20px] text-slate-400 group-hover:text-surface-container-lowest transition-colors">event</span>
+<span class="font-body-medium text-body-medium">Calendar</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:bg-[#152259] hover:text-surface-container-lowest transition-all group" data-path="paperbook" href="../tantara_filing_bundle_paperbook/code.html">
+<span class="material-symbols-outlined text-[20px] text-slate-400 group-hover:text-surface-container-lowest transition-colors">folder_zip</span>
+<span class="font-body-medium text-body-medium">Paperbook</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:bg-[#152259] hover:text-surface-container-lowest transition-all group" data-path="clients" href="#">
+<span class="material-symbols-outlined text-[20px] text-slate-400 group-hover:text-surface-container-lowest transition-colors">groups</span>
+<span class="font-body-medium text-body-medium">Clients</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:bg-[#152259] hover:text-surface-container-lowest transition-all group" data-path="community" href="#">
+<span class="material-symbols-outlined text-[20px] text-slate-400 group-hover:text-surface-container-lowest transition-colors">forum</span>
+<span class="font-body-medium text-body-medium">Community (Arbitration)</span>
+</a>
+</nav>
+</div>
+<div class="p-4 flex flex-col gap-3">
+<div class="h-px w-full bg-outline/20"></div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-300 hover:bg-[#152259] hover:text-surface-container-lowest transition-all group" data-path="settings" href="#">
+<span class="material-symbols-outlined text-[20px] text-slate-400 group-hover:text-surface-container-lowest transition-colors">settings</span>
+<span class="font-body-medium text-body-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-300 hover:bg-error/20 hover:text-error transition-all group" href="../tantara_landing_page_with_dark_light_mode/code.html">
+<span class="material-symbols-outlined text-[20px] text-slate-400 group-hover:text-error transition-colors">logout</span>
+<span class="font-body-medium text-body-medium">Sign Out</span>
+</a>
+</nav>
+<div class="p-3 rounded-lg bg-[#111C44] text-slate-300">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-tertiary-fixed text-[16px]">balance</span>
+<span class="font-label-caps text-[10px] text-tertiary-fixed font-semibold uppercase tracking-wider">Lex Arbitri</span>
+</div>
+<p class="font-body-secondary text-[11px] leading-tight text-slate-300">Focused on Arbitration Law. Smarter Tools. Faster Resolution.</p>
+</div>
+</div>
+</aside><div class="pl-64 min-h-screen flex flex-col bg-surface"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(11,20,55,0.04)] z-40 px-gutter flex items-center justify-between">
+<div class="flex-1 max-w-2xl">
+<div class="relative flex items-center w-full">
+<span class="material-symbols-outlined absolute left-3.5 text-secondary text-[20px] pointer-events-none">search</span>
+<input id="global-search-input" class="w-full pl-10 pr-12 py-2 text-body-default font-body-default bg-surface-container-lowest rounded-xl text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary shadow-[0_1px_3px_0_rgba(11,20,55,0.04)] transition-all" placeholder="Search arbitration cases, documents, provisions, or ask TANTARA..." type="text">
+<button id="global-ai-btn" class="absolute right-2 px-2 py-0.5 rounded-lg bg-surface-container-high text-on-secondary-container hover:bg-surface-container-highest hover:text-on-surface transition-colors flex items-center gap-1 text-[11px] font-title-sm" type="button">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span>AI</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-4 ml-6">
+<button class="relative p-2 rounded-xl text-secondary hover:text-on-surface hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-error"></span>
+</span>
+</button>
+<div class="h-8 w-px bg-outline-variant/30"></div>
+<div class="relative">
+<button id="user-profile-trigger" class="flex items-center gap-3 text-left focus:outline-none" type="button">
+<div class="text-right hidden sm:block">
+<div class="font-title-sm text-title-sm text-on-surface leading-tight">Aarav Mehta</div>
+<div class="font-body-secondary text-body-secondary text-secondary leading-none mt-0.5">Advocate</div>
+</div>
+<div class="relative">
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHwfxczjczA5GEB4fc-qXzw-Bp9JscaedZXv5_3_1v1EWm9HQL7dHKo8Kwy3BHhqpqJTGiE2lITitEO2Arl_KZesY1SEc4GwziF65yaVFX-KZ1AUucmodlue0CQr8_XEn9NK97587jIPfkPHZjN1hGiWutMH9ayH3DTUXfK4FUO9msug1t5G1u8BKEvLOzmAfosFFHUYPZuBK8sTf2qAY0TAzk5N960Mh6kRsQvsQMsz4yb8wvtAj8">
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 rounded-full ring-2 ring-surface"></span>
+</div>
+</button>
+<div id="user-profile-menu" class="hidden absolute right-0 mt-2 w-56 bg-surface-container-lowest rounded-xl shadow-xl border border-outline-variant/30 py-2 z-50">
+<div class="px-4 py-2 border-b border-outline-variant/20">
+<div class="font-title-sm text-title-sm text-on-surface font-semibold">Aarav Mehta</div>
+<div class="text-[11px] text-secondary">Advocate • Delhi Bar No. D/1824/2012</div>
+<div class="text-[10px] text-primary font-semibold mt-0.5">SIAC / LCIA Panel Counsel</div>
+</div>
+<a href="../tantara_dashboard/code.html" class="flex items-center gap-2 px-4 py-2 text-body-default text-on-surface hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a href="../tantara_landing_page_with_dark_light_mode/code.html" class="flex items-center gap-2 px-4 py-2 text-body-default text-error hover:bg-error-container/30 transition-colors border-t border-outline-variant/20 mt-1">
+<span class="material-symbols-outlined text-[18px] text-error">logout</span>
+<span>Sign Out to Landing</span>
+</a>
+</div>
+</div>
+</div>
+</header><main class="flex-1 w-full pt-16 px-gutter bg-surface"><div class="flex flex-col w-full pb-12">
+<!-- Top Command & Breadcrumb Strip -->
+<div class="flex flex-wrap items-center justify-between gap-4 py-4 mb-2">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Lex Arbitri OS</span>
+<span class="text-outline-variant font-body-secondary text-body-secondary">/</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-badge-sm text-badge-sm">Chambers Portal</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Dashboard Overview</h1>
+</div>
+<!-- Live Status Pill & Global Action -->
+<div class="flex items-center gap-3">
+<div class="hidden md:flex items-center gap-2 bg-surface-container-low px-3 py-1.5 rounded-lg shadow-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+</span>
+<span class="font-body-secondary text-body-secondary text-secondary">UNCITRAL &amp; SIAC Feeds Synced</span>
+</div>
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-lowest text-on-surface font-title-sm text-title-sm shadow-sm hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary">add_circle</span>
+<span class="">Initiate Arbitration</span>
+</button>
+</div>
+</div>
+<!-- 4 Stat Metric Cards (Responsive 4-column Grid) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+<!-- Card 1: Active Cases -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm transition-all duration-200 hover:shadow-md flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<div class="w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">folder_managed</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-badge-sm text-badge-sm">+2 this term</span>
+</div>
+<div>
+<div class="font-brand-display-xl text-brand-display-xl text-on-surface font-bold tracking-tight">12</div>
+<div class="font-body-medium text-body-medium text-secondary mt-1">Active Cases</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<span class="font-body-secondary text-body-secondary text-secondary">8 Institutional • 4 Ad-hoc</span>
+<span class="material-symbols-outlined text-outline-variant text-[18px]">north_east</span>
+</div>
+</div>
+<!-- Card 2: Arbitrations Pending -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm transition-all duration-200 hover:shadow-md flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<div class="w-11 h-11 rounded-lg bg-error-container/60 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[24px]">pending_actions</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-badge-sm text-badge-sm">Action Req.</span>
+</div>
+<div>
+<div class="font-brand-display-xl text-brand-display-xl text-on-surface font-bold tracking-tight">3</div>
+<div class="font-body-medium text-body-medium text-secondary mt-1">Arbitrations Pending</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<span class="font-body-secondary text-body-secondary text-secondary">Tribunal constitution in progress</span>
+<span class="material-symbols-outlined text-outline-variant text-[18px]">schedule</span>
+</div>
+</div>
+<!-- Card 3: Hearings This Week -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm transition-all duration-200 hover:shadow-md flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<div class="w-11 h-11 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-[24px]">calendar_clock</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-badge-sm text-badge-sm">Hybrid Mode</span>
+</div>
+<div>
+<div class="font-brand-display-xl text-brand-display-xl text-on-surface font-bold tracking-tight">2</div>
+<div class="font-body-medium text-body-medium text-secondary mt-1">Hearings This Week</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<span class="font-body-secondary text-body-secondary text-secondary">Next: Tomorrow at 10:30 AM IST</span>
+<span class="material-symbols-outlined text-outline-variant text-[18px]">videocam</span>
+</div>
+</div>
+<!-- Card 4: Documents Added -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm transition-all duration-200 hover:shadow-md flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<div class="w-11 h-11 rounded-lg bg-surface-container-highest flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[24px]">description</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-badge-sm text-badge-sm">Bundle Ver. 3.4</span>
+</div>
+<div>
+<div class="font-brand-display-xl text-brand-display-xl text-on-surface font-bold tracking-tight">18</div>
+<div class="font-body-medium text-body-medium text-secondary mt-1">Documents Added</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<span class="font-body-secondary text-body-secondary text-secondary">Affidavits, bundles &amp; cross-notices</span>
+<span class="material-symbols-outlined text-outline-variant text-[18px]">verified</span>
+</div>
+</div>
+</section>
+<!-- Ask TANTARA (Arbitration Law) AI Copilot Panel -->
+<section class="relative overflow-hidden rounded-xl bg-gradient-to-r from-[#0B1437] via-[#111C44] to-[#16235A] p-6 mb-6 text-surface-container-lowest shadow-md">
+<!-- Subtle Background Glow Element -->
+<div class="absolute -right-16 -top-16 w-72 h-72 rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
+<div class="absolute left-1/3 -bottom-16 w-56 h-56 rounded-full bg-tertiary-container/30 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-4">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-surface-container-lowest font-semibold">
+              Ask TANTARA <span class="text-tertiary-fixed-dim font-normal text-body-medium">(Arbitration Law)</span>
+</h2>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/10 text-white font-badge-sm text-badge-sm">
+<span class="material-symbols-outlined text-[13px] text-tertiary-fixed-dim">gavel</span>
+            Model: Arbitri-Lex-v2.8
+          </span>
+</div>
+</div>
+<!-- Prominent Input Bar with Send Button -->
+<div class="relative flex items-center w-full">
+<span class="material-symbols-outlined absolute left-4 text-tertiary-fixed-dim text-[22px] pointer-events-none">neurology</span>
+<input class="w-full pl-12 pr-14 py-3.5 bg-white/10 text-surface-container-lowest placeholder:text-slate-300 font-body-default text-body-default rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-container shadow-inner backdrop-blur-md transition-all" id="tantara-ai-input" placeholder="Ask anything about arbitration law, cases, strategy, or draft..." type="text">
+<button aria-label="Send query to TANTARA" class="absolute right-2.5 w-9 h-9 rounded-lg bg-primary-container hover:bg-primary text-on-primary flex items-center justify-center transition-transform active:scale-95 shadow-sm" id="tantara-send-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+</button>
+</div>
+<!-- 4 Quick-chip suggestion buttons -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<span class="font-label-caps text-[10px] text-slate-300 uppercase tracking-widest mr-1">Quick Prompts:</span>
+<button class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white font-title-sm text-[12px] flex items-center gap-1.5 transition-colors" onclick="fillPrompt('Procedure under Arbitration Act (Section 9 vs 17 interim relief)')" type="button">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">balance</span>
+          Procedure under Arbitration Act
+        </button>
+<button class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white font-title-sm text-[12px] flex items-center gap-1.5 transition-colors" onclick="fillPrompt('Summarize recent arbitral awards regarding liquidated damages and force majeure')" type="button">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">history_edu</span>
+          Recent arbitral awards
+        </button>
+<button class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white font-title-sm text-[12px] flex items-center gap-1.5 transition-colors" onclick="fillPrompt('Draft statement of claim under SIAC Rules 2016 for breach of contract')" type="button">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">edit_document</span>
+          Draft statement of claim
+        </button>
+<button class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white font-title-sm text-[12px] flex items-center gap-1.5 transition-colors" onclick="fillPrompt('Compare emergency arbitral relief options vs High Court injunction under Sec 9')" type="button">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">shield</span>
+          Relief options
+        </button>
+</div>
+</div>
+</section>
+<!-- Split Desktop Grid: Lead Matter Overview & Activity Stream -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Primary Case Overview Card (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-6 shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex flex-wrap items-center justify-between gap-3 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">gavel</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md text-on-surface">ABC Pvt. Ltd. vs. XYZ Ltd.</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-badge-sm text-badge-sm">Active Hearing</span>
+</div>
+<div class="font-body-secondary text-body-secondary text-secondary flex items-center gap-2 mt-0.5">
+<span class="">Ref: SIAC/ARB/2024/089</span>
+<span class="">•</span>
+<span class="font-body-medium text-body-medium text-tertiary">SIAC Arbitration Rules (6th Ed.)</span>
+</div>
+</div>
+</div>
+<button class="p-1.5 rounded-lg text-secondary hover:text-on-surface hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<!-- Case Metadata Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4 p-4 rounded-xl bg-surface-container-low">
+<div>
+<div class="font-label-caps text-label-caps uppercase text-secondary">Tribunal Presiding</div>
+<div class="font-title-sm text-title-sm text-on-surface mt-1">Hon. Justice (Retd.) K. Rao</div>
+<div class="font-body-secondary text-body-secondary text-secondary">Sole Arbitrator</div>
+</div>
+<div>
+<div class="font-label-caps text-label-caps uppercase text-secondary">Next Hearing Date</div>
+<div class="font-title-sm text-title-sm text-error mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">event</span>
+              Tomorrow, 10:30 AM IST
+            </div>
+<div class="font-body-secondary text-body-secondary text-secondary">Oral Submissions (Merits)</div>
+</div>
+<div><div class="font-label-caps text-label-caps uppercase text-secondary">Claim Amount</div>
+<div class="font-title-sm text-title-sm text-on-surface mt-1">₹118.5 Cr (INR)</div>
+<div class="font-body-secondary text-body-secondary text-secondary">Counterclaim: ₹31.7 Cr</div></div>
+</div>
+<!-- Progress Timeline / Milestones -->
+<div class="space-y-3 mb-4">
+<div class="flex items-center justify-between text-body-secondary font-body-secondary text-secondary">
+<span class="">Arbitral Stage: Examination of Witnesses &amp; Cross-Examination</span>
+<span class="font-body-strong text-primary">Stage 4 of 6</span>
+</div>
+<!-- Inline Custom Visual: Multi-segment Progress Indicator -->
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden flex">
+<div class="h-full bg-primary" style="width: 25%"></div>
+<div class="h-full bg-primary" style="width: 25%"></div>
+<div class="h-full bg-primary" style="width: 20%"></div>
+<div class="h-full bg-primary-container" style="width: 15%"></div>
+<div class="h-full bg-surface-container-highest" style="width: 15%"></div>
+</div>
+</div>
+<!-- Case Evidence & Brief Stack Preview -->
+<div class="p-3.5 rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-[20px]">folder_zip</span>
+<div>
+<div class="font-body-strong text-body-strong text-on-surface">Consolidated Hearing Bundle (Vol I - IV)</div>
+<div class="font-body-secondary text-body-secondary text-secondary">Updated 2 hours ago by Adv. Aarav Mehta</div>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest text-on-surface font-title-sm text-title-sm hover:bg-surface-bright shadow-sm flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">download</span>
+<span class="">Open PDF</span>
+</button>
+</div>
+</div>
+<!-- Quick Action Shortcuts -->
+<div class="pt-4 mt-4 flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-title-sm text-title-sm hover:bg-primary-container transition-colors flex items-center gap-1.5 shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">video_call</span>
+            Join Hearing Room
+          </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-title-sm text-title-sm transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">inventory</span>
+            Case Records
+          </button>
+</div>
+<a class="font-title-sm text-title-sm text-primary hover:underline flex items-center gap-1" href="../tantara_case_management/code.html">
+          Full Case Dossier
+          <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Right Column: Recent Activity & Calendar Snapshot (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Recent Activity Card -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between pb-3 mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">notifications_active</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Recent Activity</h3>
+</div>
+<span class="font-label-caps text-label-caps text-secondary uppercase">Last 24 Hours</span>
+</div>
+<div class="space-y-4">
+<!-- Activity Item 1 -->
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">note_add</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-body-strong text-body-strong text-on-surface truncate">Procedural Order No. 4 uploaded</div>
+<div class="font-body-secondary text-body-secondary text-secondary">Maritime Infra vs. Pacific Freight (ICC)</div>
+<span class="font-label-caps text-[10px] text-outline">Today, 2:15 PM IST</span>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">record_voice_over</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-body-strong text-body-strong text-on-surface truncate">Witness Statement #2 marked as draft</div>
+<div class="font-body-secondary text-body-secondary text-secondary">Solar Grid Corp. vs. Apex Power</div>
+<span class="font-label-caps text-[10px] text-outline">Today, 11:40 AM IST</span>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-body-strong text-body-strong text-on-surface truncate">Arbitrator Disclosure Form verified</div>
+<div class="font-body-secondary text-body-secondary text-secondary">Apex Retail Ltd. (IBA Guidelines)</div>
+<span class="font-label-caps text-[10px] text-outline">Yesterday, 5:30 PM IST</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3">
+<button class="w-full py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-secondary font-title-sm text-title-sm transition-colors text-center" type="button">
+            View All Audit Trails
+          </button>
+</div>
+</div>
+<!-- Quick Action Shortcuts Panel -->
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm">
+<h4 class="font-title-sm text-title-sm text-on-surface mb-3 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">bolt</span>
+<span class="">Quick Legal Utilities</span>
+</h4>
+<div class="grid grid-cols-2 gap-2">
+<button class="p-3 rounded-lg bg-surface-container-low hover:bg-surface-container flex flex-col gap-1 text-left transition-colors" type="button">
+<span class="material-symbols-outlined text-primary text-[20px]">timer</span>
+<span class="font-body-strong text-body-strong text-on-surface">Limitation Calc</span>
+<span class="font-body-secondary text-body-secondary text-secondary text-[11px]">Sec 29A statutory timer</span>
+</button>
+<button class="p-3 rounded-lg bg-surface-container-low hover:bg-surface-container flex flex-col gap-1 text-left transition-colors" type="button">
+<span class="material-symbols-outlined text-tertiary text-[20px]">calculate</span>
+<span class="font-body-strong text-body-strong text-on-surface">Interest &amp; Costs</span>
+<span class="font-body-secondary text-body-secondary text-secondary text-[11px]">Pre &amp; Post award rates</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function fillPrompt(text) {
+    const input = document.getElementById('tantara-ai-input');
+    if (input) {
+      input.value = text;
+      input.focus();
+    }
+  }
+
+  document.getElementById('tantara-send-btn')?.addEventListener('click', () => {
+    const input = document.getElementById('tantara-ai-input');
+    if (input && input.value.trim() !== '') {
+      input.placeholder = 'Analyzing arbitration authorities and provisions...';
+      const prev = input.value;
+      input.value = '';
+      setTimeout(() => {
+        input.value = 'TANTARA Analysis for: "' + prev + '" ready. Opening advisory drawer...';
+      }, 700);
+    }
+  });
+</script></main></div>
+
+<script src="../shared/nav.js"></script>
+</body></html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_standard" name="shell-type">
+<title>Tantara - Arbitration Law Workspace</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Chivo:wght@500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/styles.css">
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      main > :first-child {
+        margin-top: 0 !important;
+      }
+      main > :last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-lowest": "#ffffff",
+            "outline": "#767587",
+            "on-primary-fixed": "#03006d",
+            "surface-dim": "#cbdbf5",
+            "tertiary-fixed-dim": "#6ed2fe",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed-dim": "#bcc4f1",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-tertiary-container": "#81d7ff",
+            "tertiary-container": "#005e7b",
+            "outline-variant": "#c6c5d8",
+            "primary-container": "#3b3fd8",
+            "on-secondary-fixed-variant": "#3d456a",
+            "on-background": "#0b1c30",
+            "on-primary-container": "#c7c8ff",
+            "on-primary": "#ffffff",
+            "surface-bright": "#f8f9ff",
+            "surface-variant": "#d3e4fe",
+            "background": "#f8f9ff",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#c0c1ff",
+            "surface": "#f8f9ff",
+            "primary-fixed-dim": "#c0c1ff",
+            "surface-tint": "#4448e0",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#004d65",
+            "on-secondary-container": "#515980",
+            "secondary": "#545c83",
+            "primary-fixed": "#e1e0ff",
+            "tertiary": "#00455b",
+            "surface-container": "#e5eeff",
+            "on-secondary-fixed": "#10193c",
+            "inverse-surface": "#213145",
+            "surface-container-low": "#eff4ff",
+            "on-error-container": "#93000a",
+            "inverse-on-surface": "#eaf1ff",
+            "secondary-fixed": "#dde1ff",
+            "surface-container-highest": "#d3e4fe",
+            "on-surface-variant": "#454555",
+            "on-primary-fixed-variant": "#2829c8",
+            "surface-container-high": "#dce9ff",
+            "on-tertiary-fixed": "#001f2a",
+            "on-surface": "#0b1c30",
+            "tertiary-fixed": "#bfe9ff",
+            "secondary-container": "#cad2ff",
+            "primary": "#1e1dc2"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-xl": "1.75rem",
+            "space-md": "0.75rem",
+            "gutter": "1rem",
+            "space-lg": "1.25rem",
+            "margin": "1.5rem"
+          },
+          fontFamily: {
+            "body-strong": ["Arimo", "sans-serif"],
+            "label-caps": ["Chivo", "sans-serif"],
+            "brand-quote-lg": ["Playfair Display", "serif"],
+            "brand-display-xl": ["Playfair Display", "serif"],
+            "badge-sm": ["Chivo", "sans-serif"],
+            "title-sm": ["Chivo", "sans-serif"],
+            "body-medium": ["Arimo", "sans-serif"],
+            "table-cell": ["Arimo", "sans-serif"],
+            "headline-lg": ["Arimo", "sans-serif"],
+            "body-default": ["Arimo", "sans-serif"],
+            "body-secondary": ["Arimo", "sans-serif"],
+            "headline-md": ["Arimo", "sans-serif"]
+          },
+          fontSize: {
+            "body-strong": ["13px", { lineHeight: "20px", fontWeight: "600" }],
+            "label-caps": ["11px", { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" }],
+            "brand-quote-lg": ["22px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "brand-display-xl": ["36px", { lineHeight: "44px", letterSpacing: "0.02em", fontWeight: "700" }],
+            "badge-sm": ["11px", { lineHeight: "14px", fontWeight: "600" }],
+            "title-sm": ["15px", { lineHeight: "22px", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "body-medium": ["13px", { lineHeight: "20px", fontWeight: "500" }],
+            "table-cell": ["12px", { lineHeight: "18px", fontWeight: "500" }],
+            "headline-lg": ["24px", { lineHeight: "32px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "body-default": ["13px", { lineHeight: "20px", fontWeight: "400" }],
+            "body-secondary": ["12px", { lineHeight: "18px", fontWeight: "400" }],
+            "headline-md": ["18px", { lineHeight: "26px", letterSpacing: "-0.01em", fontWeight: "700" }]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-[#F8F9FF] dark:bg-[#080D1A] font-body-default text-body-default text-[#0F172A] dark:text-[#F8FAFC] antialiased transition-colors duration-200">
+<!-- UPPER NAVIGATION MENU BAR (Refined Dark Navy Style #0B1124 with high-contrast text & interactive Theme Toggle) -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#0B1124]/95 dark:bg-[#070B16]/95 backdrop-blur-xl border-b border-[#1E293B] shadow-[0_4px_20px_rgba(0,0,0,0.35)] transition-colors duration-200">
+<div class="h-16 w-full max-w-7xl mx-auto px-margin flex items-center justify-between gap-gutter">
+<!-- Brand Logo & Identity -->
+<div class="flex items-center gap-space-md">
+<img alt="Tantara Logo" class="h-8 w-auto object-contain brightness-110 drop-shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1W3k-t24YrmsnwazHVc7pUAokcPIWJUec5mxCyZsskBZUrlQp2JbNPr3O6zezT84Wr_pFSmKEVMjcAHkyJdksYh_01crAH7uWDG98URFSRgcmtCtJBz8vHvHMk5w8voS2bUCCTsOYm1ptZTbSoGvFkTQgr6OZjxYSA7Un5pxzRlr0VhKsHCU-gr7Xgpl0TRUjLO6-FsajMlbSgMgjMSIYyE8pc4BTO6_XS2EsVmcY-SBSu7xBX5-PblQg">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md tracking-wider text-white leading-none font-bold">TANTARA</span>
+<span class="font-label-caps text-label-caps text-slate-400 uppercase tracking-widest text-[10px]">Arbitration Law Workspace</span>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-1 lg:gap-space-xs">
+<a class="px-space-md py-1.5 rounded-md font-body-medium text-body-medium text-slate-300 hover:text-white hover:bg-[#1E293B]/80 transition-all" data-path="features" href="../features.html">Features</a>
+<a class="px-space-md py-1.5 rounded-md font-body-medium text-body-medium text-slate-300 hover:text-white hover:bg-[#1E293B]/80 transition-all" data-path="pricing" href="../pricing.html">Pricing</a>
+</nav>
+<!-- Right Action Items: Theme Toggle, Login, CTA & Avatar -->
+<div class="flex items-center gap-space-sm sm:gap-space-md">
+<!-- Interactive Dark / Light Mode Switcher Toggle -->
+<button aria-label="Toggle Theme" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-[#162035] border border-[#2E3D5B] text-slate-300 hover:text-white hover:border-slate-500 transition-all shadow-inner focus:outline-none" id="theme-toggle" type="button">
+<span class="material-symbols-outlined text-[16px] text-amber-300 hidden" id="theme-icon-sun">light_mode</span>
+<span class="material-symbols-outlined text-[16px] text-indigo-300" id="theme-icon-moon">dark_mode</span>
+<span class="font-label-caps text-[10px] uppercase font-semibold text-slate-300 hidden sm:inline-block" id="theme-label">Dark</span>
+</button>
+<a class="hidden sm:inline-block font-body-strong text-body-strong text-slate-200 hover:text-white transition-colors" data-path="login" href="../tantara_login/code.html">Login</a>
+<a class="inline-flex items-center justify-center px-4 py-2 rounded font-body-strong text-body-strong bg-[#3B3FD8] hover:bg-[#2F33BD] text-white transition-all shadow-md hover:shadow-indigo-500/20" data-path="sign-up" href="../tantara_sign_up/code.html">Get Started</a>
+<div class="w-8 h-8 rounded-full bg-[#1E293B] border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN WORKSPACE CONTENT -->
+<main class="w-full pt-16 bg-[#F8F9FF] dark:bg-[#080D1A] min-h-[calc(100vh-16rem)] transition-colors duration-200">
+<div class="flex flex-col w-full">
+<!-- SECTION 1: HERO VIEW -->
+<section class="relative w-full overflow-hidden bg-gradient-to-b from-[#EFF4FF] via-[#F8F9FF] to-[#F8F9FF] dark:from-[#0B1124] dark:via-[#080D1A] dark:to-[#080D1A] py-space-xl md:py-24 border-b border-[#CBDBF5]/40 dark:border-[#1E293B] transition-colors duration-200">
+<!-- Subtle Background Ambient Geometry -->
+<div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/10 dark:bg-primary/20 blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/2 -left-48 w-80 h-80 rounded-full bg-tertiary-fixed-dim/20 dark:bg-tertiary-fixed-dim/10 blur-2xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-margin">
+<!-- Tagline / Jurisdiction Pill -->
+<div class="flex items-center gap-space-sm mb-space-md">
+<span class="inline-flex items-center gap-space-xs font-badge-sm text-badge-sm uppercase px-space-md py-space-xs rounded-full bg-[#DCE9FF] dark:bg-[#162035] text-primary dark:text-[#93C5FD] border border-blue-200/60 dark:border-[#2E3D5B] tracking-wider font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-sky-400 animate-pulse"></span>
+              Jurisdictional Intelligence • Act of 1996 &amp; Global Rules
+            </span>
+</div>
+<!-- Main Hero Narrative -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7 space-y-space-lg">
+<h1 class="font-brand-display-xl text-brand-display-xl text-[#0F172A] dark:text-[#F8FAFC] leading-tight tracking-tight">
+                Smarter Tools.<br>
+<span class="italic text-primary dark:text-[#818CF8]">Faster Resolution.</span>
+</h1>
+<p class="font-body-default text-body-default text-[#475569] dark:text-[#94A3B8] max-w-2xl leading-relaxed text-base">
+                An institutional, AI-accelerated arbitration law workspace engineered exclusively for arbitration practitioners, commercial chambers, and tribunal counsel under Indian &amp; International Arbitration frameworks.
+              </p>
+<!-- Dual Action Triggers -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<a class="inline-flex items-center justify-center gap-space-sm px-6 py-3.5 rounded-lg font-body-strong text-body-strong bg-[#1E1DC2] dark:bg-[#3B3FD8] text-white hover:bg-primary-container shadow-md hover:shadow-lg transition-all duration-200 group" data-path="signup-advocate" href="../tantara_login/code.html">
+<span class="">Continue as Advocate</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-space-xs px-6 py-3.5 rounded-lg font-body-strong text-body-strong bg-white dark:bg-[#161F36] text-[#0F172A] dark:text-slate-100 hover:bg-[#DCE9FF] dark:hover:bg-[#1E293B] border border-slate-200 dark:border-[#2E3D5B] shadow-sm transition-all duration-200" data-path="explore" href="../tantara_sign_up/code.html">
+<span class="material-symbols-outlined text-[18px] text-secondary dark:text-slate-400">explore</span>
+<span class="">Explore as Chamber User</span>
+</a>
+</div>
+<!-- Institutional Trust Badges Strip -->
+<div class="pt-space-md space-y-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-[#475569] dark:text-slate-400 tracking-wider">Tribunal Rules &amp; Institutional Compatibility</span>
+<div class="flex flex-wrap items-center gap-space-xs pt-1">
+<span class="px-space-md py-1 rounded-md bg-white dark:bg-[#111827] text-[#0F172A] dark:text-slate-200 border border-slate-200/80 dark:border-[#1E293B] font-badge-sm text-badge-sm shadow-sm flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary dark:bg-slate-400"></span> SIAC (Singapore)
+                  </span>
+<span class="px-space-md py-1 rounded-md bg-white dark:bg-[#111827] text-[#0F172A] dark:text-slate-200 border border-slate-200/80 dark:border-[#1E293B] font-badge-sm text-badge-sm shadow-sm flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary dark:bg-slate-400"></span> ICC (Paris)
+                  </span>
+<span class="px-space-md py-1 rounded-md bg-white dark:bg-[#111827] text-[#0F172A] dark:text-slate-200 border border-slate-200/80 dark:border-[#1E293B] font-badge-sm text-badge-sm shadow-sm flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary dark:bg-slate-400"></span> LCIA (London)
+                  </span>
+<span class="px-space-md py-1 rounded-md bg-white dark:bg-[#111827] text-[#0F172A] dark:text-slate-200 border border-slate-200/80 dark:border-[#1E293B] font-badge-sm text-badge-sm shadow-sm flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary dark:bg-slate-400"></span> DIAC (Delhi)
+                  </span>
+<span class="px-space-md py-1 rounded-md bg-white dark:bg-[#111827] text-primary dark:text-[#93C5FD] border border-blue-200 dark:border-[#2E3D5B] font-badge-sm text-badge-sm shadow-sm flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-sky-400"></span> Indian Act, 1996 (Ad Hoc)
+                  </span>
+</div>
+</div>
+</div>
+<!-- Hero Showcase Card: The Live Unified Workspace -->
+<div class="lg:col-span-5 relative mt-6 lg:mt-0">
+<div class="w-full bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-[#1E293B] rounded-xl shadow-xl overflow-hidden p-space-lg space-y-space-md transition-colors duration-200">
+<!-- Simulated App Bar -->
+<div class="flex items-center justify-between pb-space-xs bg-[#EFF4FF] dark:bg-[#161F36] -mx-space-lg -mt-space-lg p-space-md border-b border-slate-200/60 dark:border-[#1E293B]">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-error"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary-container"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed"></div>
+<span class="ml-space-sm font-label-caps text-label-caps uppercase text-[#475569] dark:text-slate-300 font-medium">TANTARA Chamber Console • Docket #ARB-2025/DEL-84</span>
+</div>
+<span class="inline-flex items-center font-badge-sm text-badge-sm px-space-sm py-0.5 rounded bg-[#DCE9FF] dark:bg-primary-container/40 text-primary dark:text-[#C7C8FF] font-semibold">Live Bundle</span>
+</div>
+<!-- Case Title & Status Bar -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-[#475569] dark:text-slate-400 uppercase">Active Reference</span>
+<span class="font-badge-sm text-badge-sm px-2 py-0.5 rounded-full bg-[#E5EEFF] dark:bg-[#1E293B] text-[#0F172A] dark:text-slate-200 font-medium">Section 9 Pre-Arbitration</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-[#0F172A] dark:text-[#F8FAFC]">ABC Infrastructure Pvt. Ltd. <span class="font-normal text-secondary dark:text-slate-400">v.</span> XYZ Heavy EPC Ltd.</h3>
+<p class="font-body-secondary text-body-secondary text-[#475569] dark:text-slate-400">Sole Arbitrator: Hon’ble Justice (Retd.) R.K. Singhal • Seat: New Delhi (IST)</p>
+</div>
+<!-- Metric Triad -->
+<div class="grid grid-cols-3 gap-space-sm pt-space-xs">
+<div class="bg-[#EFF4FF] dark:bg-[#161F36] border border-blue-100 dark:border-[#2E3D5B] p-space-sm rounded-lg text-center">
+<span class="font-label-caps text-label-caps uppercase text-[#475569] dark:text-slate-400 block">Disputed Sum</span>
+<span class="font-headline-md text-headline-md text-primary dark:text-[#93C5FD] font-bold">₹ 42.8 Cr</span>
+</div>
+<div class="bg-[#EFF4FF] dark:bg-[#161F36] border border-blue-100 dark:border-[#2E3D5B] p-space-sm rounded-lg text-center">
+<span class="font-label-caps text-label-caps uppercase text-[#475569] dark:text-slate-400 block">Paperbook</span>
+<span class="font-headline-md text-headline-md text-[#0F172A] dark:text-white font-bold">482 Folios</span>
+</div>
+<div class="bg-[#EFF4FF] dark:bg-[#161F36] border border-blue-100 dark:border-[#2E3D5B] p-space-sm rounded-lg text-center">
+<span class="font-label-caps text-label-caps uppercase text-[#475569] dark:text-slate-400 block">Bates Index</span>
+<span class="font-headline-md text-headline-md text-tertiary dark:text-[#6ED2FE] font-bold">P-001–P-482</span>
+</div>
+</div>
+<!-- Optical Extract Sample Pill -->
+<div class="bg-[#DCE9FF]/70 dark:bg-[#1E293B] border border-blue-200/60 dark:border-slate-700 p-space-sm rounded-lg space-y-1">
+<div class="flex items-center justify-between text-[#0F172A] dark:text-white font-body-strong text-body-strong">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary dark:text-[#93C5FD]">verified</span> Clause 23.4 Synthesized</span>
+<span class="font-label-caps text-label-caps text-primary dark:text-[#93C5FD] uppercase">99.4% Match</span>
+</div>
+<p class="font-body-secondary text-body-secondary text-[#475569] dark:text-slate-300 italic">
+                    “...governed strictly by the laws of India. Place of arbitration shall be New Delhi under DIAC Rules...”
+                  </p>
+</div>
+<!-- Progress Bar / Automation Indicator -->
+<div class="space-y-1 pt-space-xs">
+<div class="flex justify-between font-label-caps text-label-caps text-[#475569] dark:text-slate-400">
+<span class="">Tribunal Ready Bundle Assembly</span>
+<span class="text-primary dark:text-[#93C5FD] font-semibold">100% Bates Verified</span>
+</div>
+<div class="w-full h-1.5 bg-[#DCE9FF] dark:bg-slate-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary dark:bg-[#3B3FD8] rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: ARCHITECTED FOR HIGH-STAKES ARBITRATION (4 CORE FEATURES) -->
+<section class="w-full py-space-xl md:py-24 bg-[#F8F9FF] dark:bg-[#080D1A] transition-colors duration-200">
+<div class="max-w-7xl mx-auto px-margin space-y-space-xl">
+<!-- Section Header -->
+<div class="text-center max-w-3xl mx-auto space-y-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-primary dark:text-[#818CF8] tracking-widest font-semibold">Procedural Excellence</span>
+<h2 class="font-headline-lg text-headline-lg text-[#0F172A] dark:text-[#F8FAFC] text-2xl md:text-3xl">Architected for High-Stakes Arbitration</h2>
+<p class="font-body-default text-body-default text-[#475569] dark:text-[#94A3B8] text-base">
+              End-to-end procedural velocity from chaotic document ingestion to flawless, tribunal-ready filing paperbooks.
+            </p>
+</div>
+<!-- Feature Grid: 4 Bento Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Card 1: Document AI Read -->
+<div class="bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-[#1E293B] rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-md">
+<div class="w-12 h-12 rounded-lg bg-[#DCE9FF] dark:bg-[#1E293B] text-primary dark:text-[#93C5FD] flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">document_scanner</span>
+</div>
+<div class="space-y-space-xs">
+<span class="inline-block font-badge-sm text-badge-sm uppercase px-2 py-0.5 rounded bg-[#E5EEFF] dark:bg-[#1E293B] text-primary dark:text-[#93C5FD] font-semibold">Instant OCR &amp; Clause Tagging</span>
+<h3 class="font-title-sm text-title-sm text-[#0F172A] dark:text-[#F8FAFC] text-lg">Document AI Read</h3>
+<p class="font-body-default text-body-default text-[#475569] dark:text-[#94A3B8] leading-relaxed">
+                    Instant OCR and automated clause synthesis for concession agreements, commercial notices, and procedural orders. Automatically tags seat, governing law, and Section 7 arbitration pacts.
+                  </p>
+</div>
+</div>
+<div class="pt-space-sm">
+<span class="text-primary dark:text-[#818CF8] font-body-strong text-body-strong flex items-center gap-1">
+                  Multi-lingual OCR support
+                  <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</span>
+</div>
+</div>
+<!-- Card 2: AI Case Drafts -->
+<div class="bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-[#1E293B] rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-md">
+<div class="w-12 h-12 rounded-lg bg-[#DCE9FF] dark:bg-[#1E293B] text-primary dark:text-[#93C5FD] flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">history_edu</span>
+</div>
+<div class="space-y-space-xs">
+<span class="inline-block font-badge-sm text-badge-sm uppercase px-2 py-0.5 rounded bg-[#E5EEFF] dark:bg-[#1E293B] text-primary dark:text-[#93C5FD] font-semibold">Institutional Rules &amp; CPC Compliant</span>
+<h3 class="font-title-sm text-title-sm text-[#0F172A] dark:text-[#F8FAFC] text-lg">AI Case Drafts</h3>
+<p class="font-body-default text-body-default text-[#475569] dark:text-[#94A3B8] leading-relaxed">
+                    Automated generation of Statements of Claim, Section 9 interim relief petitions, and tribunal notices adhering to Order VI Rule 15 CPC evidentiary verification standards.
+                  </p>
+</div>
+</div>
+<div class="pt-space-sm">
+<span class="text-primary dark:text-[#818CF8] font-body-strong text-body-strong flex items-center gap-1">
+                  Verified legal precedents
+                  <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</span>
+</div>
+</div>
+<!-- Card 3: Smart Autofill -->
+<div class="bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-[#1E293B] rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-md">
+<div class="w-12 h-12 rounded-lg bg-[#DCE9FF] dark:bg-[#1E293B] text-primary dark:text-[#93C5FD] flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">hub</span>
+</div>
+<div class="space-y-space-xs">
+<span class="inline-block font-badge-sm text-badge-sm uppercase px-2 py-0.5 rounded bg-[#E5EEFF] dark:bg-[#1E293B] text-primary dark:text-[#93C5FD] font-semibold">Zero-Error Variable Injection</span>
+<h3 class="font-title-sm text-title-sm text-[#0F172A] dark:text-[#F8FAFC] text-lg">Smart Autofill</h3>
+<p class="font-body-default text-body-default text-[#475569] dark:text-[#94A3B8] leading-relaxed">
+                    Centralized case registry binding claimant, respondent, seat, notice dates, and tribunal docket numbers across every pleading and schedule without manual re-typing.
+                  </p>
+</div>
+</div>
+<div class="pt-space-sm">
+<span class="text-primary dark:text-[#818CF8] font-body-strong text-body-strong flex items-center gap-1">
+                  Immutable cross-references
+                  <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</span>
+</div>
+</div>
+<!-- Card 4: Filing Bundle / Paperbook -->
+<div class="bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-[#1E293B] rounded-xl p-space-lg shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-space-md">
+<div class="space-y-space-md">
+<div class="w-12 h-12 rounded-lg bg-[#DCE9FF] dark:bg-[#1E293B] text-primary dark:text-[#93C5FD] flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">format_list_numbered</span>
+</div>
+<div class="space-y-space-xs">
+<span class="inline-block font-badge-sm text-badge-sm uppercase px-2 py-0.5 rounded bg-[#E5EEFF] dark:bg-[#1E293B] text-primary dark:text-[#93C5FD] font-semibold">Automated Bates Indexing</span>
+<h3 class="font-title-sm text-title-sm text-[#0F172A] dark:text-[#F8FAFC] text-lg">Filing Bundle / Paperbook</h3>
+<p class="font-body-default text-body-default text-[#475569] dark:text-[#94A3B8] leading-relaxed">
+                    One-click compiled paperbooks with automatic continuous pagination (Bates folios P-001 to P-102), indexed annexures, synopses, and compliant A4 tribunal formats.
+                  </p>
+</div>
+</div>
+<div class="pt-space-sm">
+<span class="text-primary dark:text-[#818CF8] font-body-strong text-body-strong flex items-center gap-1">
+                  Instant print &amp; PDF export
+                  <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: HOW IT WORKS (3-STEP LEGAL WORKFLOW STRIP) -->
+<section class="w-full py-space-xl md:py-24 bg-[#EFF4FF] dark:bg-[#0B1124] border-y border-[#CBDBF5]/40 dark:border-[#1E293B] transition-colors duration-200">
+<div class="max-w-7xl mx-auto px-margin space-y-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="space-y-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-primary dark:text-[#818CF8] tracking-widest font-semibold">Procedural Pipeline</span>
+<h2 class="font-brand-display-xl text-brand-display-xl text-[#0F172A] dark:text-[#F8FAFC] text-2xl md:text-3xl font-semibold">How It Works</h2>
+</div>
+<p class="font-body-default text-body-default text-[#475569] dark:text-[#94A3B8] max-w-md">
+              Engineered to match the strict chronological standards required by High Courts, Supreme Court of India, and International Chambers.
+            </p>
+</div>
+<!-- 3 Steps Strip -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Step 01 -->
+<div class="bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-[#1E293B] p-space-lg rounded-xl shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+<div class="text-secondary/15 dark:text-slate-600/20 font-brand-display-xl text-6xl font-bold absolute top-2 right-4 select-none pointer-events-none">01</div>
+<div class="space-y-space-md relative z-10">
+<div class="w-10 h-10 rounded bg-[#DCE9FF] dark:bg-[#1E293B] text-primary dark:text-[#93C5FD] flex items-center justify-center font-body-strong text-body-strong">
+                  01
+                </div>
+<div class="space-y-space-xs">
+<h3 class="font-headline-md text-headline-md text-[#0F172A] dark:text-[#F8FAFC]">Ingest &amp; Synthesize</h3>
+<p class="font-body-default text-body-default text-[#475569] dark:text-[#94A3B8] leading-relaxed">
+                    Upload scanned filings, Section 21 arbitration notices, or commercial agreements. TANTARA OCR isolates parties, jurisdiction, governing law, and core issues in dispute.
+                  </p>
+</div>
+<div class="bg-[#EFF4FF] dark:bg-[#161F36] p-space-sm rounded text-[#475569] dark:text-slate-300 font-body-secondary text-body-secondary border border-blue-100 dark:border-[#2E3D5B]">
+                  ✓ Automated claim &amp; counter-claim tagging
+                </div>
+</div>
+</div>
+<!-- Step 02 -->
+<div class="bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-[#1E293B] p-space-lg rounded-xl shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+<div class="text-secondary/15 dark:text-slate-600/20 font-brand-display-xl text-6xl font-bold absolute top-2 right-4 select-none pointer-events-none">02</div>
+<div class="space-y-space-md relative z-10">
+<div class="w-10 h-10 rounded bg-[#DCE9FF] dark:bg-[#1E293B] text-primary dark:text-[#93C5FD] flex items-center justify-center font-body-strong text-body-strong">
+                  02
+                </div>
+<div class="space-y-space-xs">
+<h3 class="font-headline-md text-headline-md text-[#0F172A] dark:text-[#F8FAFC]">Draft &amp; Bind</h3>
+<p class="font-body-default text-body-default text-[#475569] dark:text-[#94A3B8] leading-relaxed">
+                    Generate structured Statements of Claim, Section 11 arbitrator appointment petitions, and replies. Auto-inject case metadata across all verification affidavits.
+                  </p>
+</div>
+<div class="bg-[#EFF4FF] dark:bg-[#161F36] p-space-sm rounded text-[#475569] dark:text-slate-300 font-body-secondary text-body-secondary border border-blue-100 dark:border-[#2E3D5B]">
+                  ✓ Zero repetitive metadata re-entry
+                </div>
+</div>
+</div>
+<!-- Step 03 -->
+<div class="bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-[#1E293B] p-space-lg rounded-xl shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+<div class="text-secondary/15 dark:text-slate-600/20 font-brand-display-xl text-6xl font-bold absolute top-2 right-4 select-none pointer-events-none">03</div>
+<div class="space-y-space-md relative z-10">
+<div class="w-10 h-10 rounded bg-[#DCE9FF] dark:bg-[#1E293B] text-primary dark:text-[#93C5FD] flex items-center justify-center font-body-strong text-body-strong">
+                  03
+                </div>
+<div class="space-y-space-xs">
+<h3 class="font-headline-md text-headline-md text-[#0F172A] dark:text-[#F8FAFC]">Collate &amp; File</h3>
+<p class="font-body-default text-body-default text-[#475569] dark:text-[#94A3B8] leading-relaxed">
+                    Generate the completed tribunal paperbook. Automated Bates numbering, comprehensive table of contents, indexed annexures, and High Court rule compliance.
+                  </p>
+</div>
+<div class="bg-[#EFF4FF] dark:bg-[#161F36] p-space-sm rounded text-[#475569] dark:text-slate-300 font-body-secondary text-body-secondary border border-blue-100 dark:border-[#2E3D5B]">
+                  ✓ 1-Click ready-to-lodge digital dossier
+                </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: SOCIAL PROOF & CHAMBER METRICS -->
+<section class="w-full py-space-xl md:py-24 bg-[#F8F9FF] dark:bg-[#080D1A] transition-colors duration-200">
+<div class="max-w-7xl mx-auto px-margin space-y-space-xl">
+<!-- High Impact Numbers -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-[#1E293B] p-space-xl rounded-xl shadow-sm text-center space-y-space-xs">
+<div class="font-brand-display-xl text-brand-display-xl text-primary dark:text-[#93C5FD] font-bold">5,000+</div>
+<div class="font-headline-md text-headline-md text-[#0F172A] dark:text-[#F8FAFC]">Active Platform Users</div>
+<p class="font-body-secondary text-body-secondary text-[#475569] dark:text-[#94A3B8]">Arbitrators, senior advocates, and dispute counsel collaborating across matters.</p>
+</div>
+<div class="bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-[#1E293B] p-space-xl rounded-xl shadow-sm text-center space-y-space-xs">
+<div class="font-brand-display-xl text-brand-display-xl text-primary dark:text-[#93C5FD] font-bold">75%</div>
+<div class="font-headline-md text-headline-md text-[#0F172A] dark:text-[#F8FAFC]">Filing Time Reduced</div>
+<p class="font-body-secondary text-body-secondary text-[#475569] dark:text-[#94A3B8]">From first brief review to finished, indexed Bates-stamped paperbooks.</p>
+</div>
+<div class="bg-white dark:bg-[#111827] border border-slate-200/80 dark:border-[#1E293B] p-space-xl rounded-xl shadow-sm text-center space-y-space-xs">
+<div class="font-brand-display-xl text-brand-display-xl text-primary dark:text-[#93C5FD] font-bold">100%</div>
+<div class="font-headline-md text-headline-md text-[#0F172A] dark:text-[#F8FAFC]">Bates Folio Accuracy</div>
+<p class="font-body-secondary text-body-secondary text-[#475569] dark:text-[#94A3B8]">Eliminating registry curial objections and manual pagination defects.</p>
+</div>
+</div>
+<!-- Testimonial Editorial Card: Rotating Legal Counsel Quotes -->
+<div id="quote-card-container" class="bg-[#EFF4FF] dark:bg-[#161F36] border border-blue-200/80 dark:border-[#2E3D5B] rounded-xl p-space-xl md:p-12 shadow-sm relative overflow-hidden max-w-5xl mx-auto transition-colors duration-200"><div class="flex items-center justify-between gap-space-sm relative"><button type="button" aria-label="Previous quote" class="btn-quote-prev hidden sm:flex w-10 h-10 rounded-full border border-slate-200/80 dark:border-[#2E3D5B] bg-white dark:bg-[#111827] text-[#475569] dark:text-slate-300 hover:text-primary dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#1E293B] items-center justify-center transition-all shadow-sm focus:outline-none flex-shrink-0"><span class="material-symbols-outlined text-[20px]">chevron_left</span></button><div class="flex-1 max-w-3xl mx-auto text-center space-y-space-md px-space-xs sm:px-space-md"><div class="flex justify-center"><span class="material-symbols-outlined text-primary dark:text-[#818CF8] text-4xl opacity-70">format_quote</span></div><p id="quote-text" class="font-brand-quote-lg text-brand-quote-lg text-[#0F172A] dark:text-[#F8FAFC] italic font-medium leading-relaxed md:text-3xl">“Arbitration is about resolving disputes with speed and integrity, not replicating the delays and technicalities of traditional courts.”</p><div class="text-body-secondary text-[#475569] dark:text-slate-400 mt-4 tracking-wide font-body-secondary"><span id="quote-author" class="font-body-strong text-body-strong text-[#0F172A] dark:text-slate-200 block sm:inline">— Fali S. Nariman</span><span class="hidden sm:inline text-slate-400 dark:text-slate-600 mx-1.5">•</span><span id="quote-cite" class="italic block sm:inline">Senior Advocate &amp; Former ICCA President</span></div><div class="flex sm:hidden items-center justify-center gap-space-md pt-2"><button type="button" aria-label="Previous quote" class="btn-quote-prev w-8 h-8 rounded-full border border-slate-200/80 dark:border-[#2E3D5B] bg-white dark:bg-[#111827] text-[#475569] dark:text-slate-300 flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button><button type="button" aria-label="Next quote" class="btn-quote-next w-8 h-8 rounded-full border border-slate-200/80 dark:border-[#2E3D5B] bg-white dark:bg-[#111827] text-[#475569] dark:text-slate-300 flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button></div><div id="quote-dots" class="flex items-center justify-center gap-1.5 pt-space-xs"><span class="w-6 h-1.5 rounded-full bg-[#1E1DC2] dark:bg-[#3B3FD8] transition-all" aria-label="Quote 1 of 6 (active)"></span><span class="w-2 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 hover:bg-slate-400 transition-all cursor-pointer" aria-label="Quote 2 of 6"></span><span class="w-2 h-1.5 rounded-full bg-slate-300 dark:bg-slate-700 hover:bg-slate-400 transition-all cursor-pointer" aria-label="Quote 3 of 6"></span></div></div><button type="button" aria-label="Next quote" class="btn-quote-next hidden sm:flex w-10 h-10 rounded-full border border-slate-200/80 dark:border-[#2E3D5B] bg-white dark:bg-[#111827] text-[#475569] dark:text-slate-300 hover:text-primary dark:hover:text-white hover:bg-slate-100 dark:hover:bg-[#1E293B] items-center justify-center transition-all shadow-sm focus:outline-none flex-shrink-0"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button></div></div>
+</div>
+</section>
+<!-- SECTION 5: CALL TO ACTION BANNER -->
+<section class="w-full pb-space-xl md:pb-24 bg-[#F8F9FF] dark:bg-[#080D1A] transition-colors duration-200">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="bg-gradient-to-r from-[#1E1DC2] via-[#2D33D0] to-[#3B3FD8] dark:from-[#111936] dark:via-[#1B254B] dark:to-[#222E5F] text-white rounded-xl p-space-xl md:p-16 shadow-xl border border-blue-700/40 dark:border-[#2E3D5B] relative overflow-hidden">
+<!-- Background Radial Accent -->
+<div class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-white/10 dark:bg-primary/20 blur-2xl pointer-events-none"></div>
+<div class="relative z-10 max-w-2xl space-y-space-md">
+<span class="font-label-caps text-label-caps uppercase text-[#C7C8FF] dark:text-[#93C5FD] tracking-widest font-semibold">Institutional Onboarding</span>
+<h2 class="font-brand-display-xl text-brand-display-xl text-white leading-tight">Ready to accelerate your arbitration practice?</h2>
+<p class="font-body-default text-body-default text-[#E2E8F0] text-base leading-relaxed">
+                Join elite law chambers, boutique dispute firms, and corporate legal departments streamlining arbitration proceedings under domestic and global institutional frameworks.
+              </p>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<a class="inline-flex items-center justify-center gap-space-xs px-6 py-3.5 rounded-lg font-body-strong text-body-strong bg-white text-[#1E1DC2] hover:bg-slate-100 shadow-md transition-all font-semibold" data-path="get-started" href="../tantara_sign_up/code.html">
+<span class="">Get Started with TANTARA</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-space-xs px-6 py-3.5 rounded-lg font-body-strong text-body-strong text-white bg-white/15 hover:bg-white/25 border border-white/20 transition-all" data-path="schedule-walkthrough" href="#">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span class="">Schedule Chambers Walkthrough</span>
+</a>
+</div>
+<div class="flex items-center gap-space-md pt-space-xs text-[#CBD5E1] font-body-secondary text-body-secondary">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-green-300">verified_user</span> ISO 27001 • Data Sovereignty (India)</span>
+<span class="">•</span>
+<span class="">Enterprise SLAs Available</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="w-full bg-white dark:bg-[#070B16] border-t border-slate-200 dark:border-[#1E293B] shadow-[0_-1px_6px_rgba(11,28,48,0.03)] transition-colors duration-200">
+<div class="max-w-7xl mx-auto px-margin pt-space-xl pb-margin">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter mb-space-xl">
+<div class="space-y-space-sm">
+<div class="flex items-center gap-space-sm">
+<img alt="Tantara Logo" class="h-6 w-auto object-contain brightness-110" src="https://lh3.googleusercontent.com/aida/AEtjO1W3k-t24YrmsnwazHVc7pUAokcPIWJUec5mxCyZsskBZUrlQp2JbNPr3O6zezT84Wr_pFSmKEVMjcAHkyJdksYh_01crAH7uWDG98URFSRgcmtCtJBz8vHvHMk5w8voS2bUCCTsOYm1ptZTbSoGvFkTQgr6OZjxYSA7Un5pxzRlr0VhKsHCU-gr7Xgpl0TRUjLO6-FsajMlbSgMgjMSIYyE8pc4BTO6_XS2EsVmcY-SBSu7xBX5-PblQg">
+<span class="font-headline-md text-headline-md text-[#0F172A] dark:text-white tracking-tight font-bold">TANTARA</span>
+</div>
+<p class="font-body-secondary text-body-secondary text-[#475569] dark:text-[#94A3B8] max-w-xs">The institutional arbitration workspace engineered for commercial disputes, tribunal efficiency, and automated hearing bundle synthesis.</p>
+<div class="pt-space-xs">
+<span class="inline-flex items-center gap-space-xs font-badge-sm text-badge-sm px-space-sm py-space-xs bg-[#E5EEFF] dark:bg-[#161F36] text-[#475569] dark:text-slate-300 border border-blue-100 dark:border-[#2E3D5B] rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-primary dark:bg-[#818CF8]"></span>Compliant with Arbitration &amp; Conciliation Act, 1996
+            </span>
+</div>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps uppercase text-[#0F172A] dark:text-white mb-space-md font-semibold">Arbitration Forums</h4>
+<ul class="space-y-space-xs font-body-secondary text-body-secondary text-[#475569] dark:text-[#94A3B8]">
+<li class=""><a class="hover:text-primary dark:hover:text-white transition-colors" data-path="arbitration-rules" href="#">SIAC Rules (Singapore)</a></li>
+<li class=""><a class="hover:text-primary dark:hover:text-white transition-colors" data-path="arbitration-rules" href="#">ICC Rules (Paris)</a></li>
+<li class=""><a class="hover:text-primary dark:hover:text-white transition-colors" data-path="arbitration-rules" href="#">LCIA Protocols (London)</a></li>
+<li class=""><a class="hover:text-primary dark:hover:text-white transition-colors" data-path="arbitration-rules" href="#">Domestic Arbitration (India)</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps uppercase text-[#0F172A] dark:text-white mb-space-md font-semibold">Chamber Platform</h4>
+<ul class="space-y-space-xs font-body-secondary text-body-secondary text-[#475569] dark:text-[#94A3B8]">
+<li class=""><a class="hover:text-primary dark:hover:text-white transition-colors" data-path="features" href="../features.html">Bundle Compilation</a></li>
+<li class=""><a class="hover:text-primary dark:hover:text-white transition-colors" data-path="how-it-works" href="../features.html#feature-workspace">Procedural Timelines</a></li>
+<li class=""><a class="hover:text-primary dark:hover:text-white transition-colors" data-path="pricing" href="../pricing.html">Chamber Licensing</a></li>
+<li class=""><a class="hover:text-primary dark:hover:text-white transition-colors" data-path="user-settings" href="#">Security &amp; Data Sovereignty</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps uppercase text-[#0F172A] dark:text-white mb-space-md font-semibold">Legal Operations &amp; IST</h4>
+<p class="font-body-secondary text-body-secondary text-[#475569] dark:text-[#94A3B8] mb-space-sm">Desk support active 09:00 - 20:00 Indian Standard Time (IST) for counsel filings and tribunal emergency petitions.</p>
+<div class="flex flex-col gap-space-xs font-body-secondary text-body-secondary text-[#475569] dark:text-[#94A3B8]">
+<span class="">Email: registry@tantara.legal</span>
+<span class="">Chamber Registry Desk: New Delhi &amp; Mumbai</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md border-t border-slate-100 dark:border-[#1E293B] flex flex-col md:flex-row items-center justify-between gap-space-sm text-[#475569] dark:text-[#94A3B8] font-body-secondary text-body-secondary">
+<div class="flex items-center gap-space-md">
+<a class="hover:text-primary dark:hover:text-white transition-colors" data-path="terms-of-service" href="#">Terms of Service</a>
+<span class="text-slate-300 dark:text-slate-700">•</span>
+<a class="hover:text-primary dark:hover:text-white transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a>
+<span class="text-slate-300 dark:text-slate-700">•</span>
+<a class="hover:text-primary dark:hover:text-white transition-colors" data-path="compliance-statement" href="#">Regulatory Disclosures</a>
+</div>
+<div class="">© 2025 TANTARA Arbitration Technologies Private Limited. All rights reserved.</div>
+</div>
+</div>
+</footer>
+<!-- JAVASCRIPT FOR SEAMLESS INTERACTIVE THEME TOGGLE -->
+<script>
+    (function initTheme() {
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+      const themeLabel = document.getElementById('theme-label');
+
+      function updateUI(isDark) {
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          sunIcon.classList.remove('hidden');
+          moonIcon.classList.add('hidden');
+          themeLabel.textContent = 'Light';
+        } else {
+          document.documentElement.classList.remove('dark');
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
+          themeLabel.textContent = 'Dark';
+        }
+      }
+
+      // Check saved preference or default
+      const savedTheme = localStorage.getItem('tantara-theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initialDark = savedTheme ? savedTheme === 'dark' : prefersDark;
+      updateUI(initialDark);
+
+      themeToggleBtn.addEventListener('click', function() {
+        const isCurrentDark = document.documentElement.classList.contains('dark');
+        const nextDark = !isCurrentDark;
+        updateUI(nextDark);
+        localStorage.setItem('tantara-theme', nextDark ? 'dark' : 'light');
+      });
+    })();
+  </script>
+  <script src="../shared/quotes.js"></script>
+</body></html>
